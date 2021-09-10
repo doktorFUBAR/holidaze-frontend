@@ -1,0 +1,15 @@
+.loader {
+  height: 100vh;
+  background: $color-mountain-meadow;
+  width: 100%;
+  color: $color-white;
+  z-index: 99999;
+  display: grid;
+  place-items: center;
+
+  &__svg {
+    width: 10rem;
+    height: 10rem;
+    display: inline-block;
+  }
+}

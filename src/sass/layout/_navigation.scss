@@ -1,0 +1,42 @@
+.header {
+  position: fixed;
+  height: 10rem;
+  top: 0;
+  overflow: hidden;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  background: $color-white;
+  width: 100%;
+  z-index: 999;
+
+  &__logo {
+    color: $color-mountain-meadow;
+    text-transform: lowercase;
+    display: block;
+    font-size: 4.5rem;
+  }
+
+  &__links {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 30rem;
+    list-style: none;
+
+    & a:visited {
+      color: $color-black;
+    }
+  }
+
+  &__item {
+    padding: 1rem;
+    border-radius: 0.3rem;
+    transition: all 500ms ease;
+
+    &:hover {
+      background: darken($color-white, 5%);
+    }
+  }
+}

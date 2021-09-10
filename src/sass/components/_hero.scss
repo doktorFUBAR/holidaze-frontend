@@ -1,0 +1,37 @@
+.hero {
+  margin-top: 15rem;
+  position: relative;
+  height: 73.2rem;
+
+  &__content {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translate(-10%, -50%);
+    z-index: 2;
+  }
+
+  &__title-main {
+    font-size: 8rem;
+    width: 60rem;
+  }
+
+  &__title-sub {
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .img-gradient {
+    border-radius: 1.5rem;
+    background: $color-mountain-meadow;
+  }
+}
+
+.or-separate {
+  margin: 0 1rem;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+}

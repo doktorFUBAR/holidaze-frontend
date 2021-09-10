@@ -1,0 +1,18 @@
+footer {
+  background: $color-black;
+  color: $color-white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1.5rem 1.5rem 0 0;
+  padding: 2rem;
+
+  ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    width: 20rem;
+    font-size: 3rem;
+  }
+}
