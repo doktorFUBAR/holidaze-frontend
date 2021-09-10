@@ -1,8 +1,9 @@
 import React from "react";
+import { BASE_URL, HOTELS } from "../../constants/api";
 import useFetch from "../../hooks/useFetch";
 
 export default function HotelCollection() {
-  const { loading, error, data } = useFetch("http://localhost:1338/places");
+  const { loading, error, data } = useFetch(BASE_URL + HOTELS);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error</p>;
@@ -12,8 +13,8 @@ export default function HotelCollection() {
         {data.map((place) => (
           <div key={place.id} className="hotel-card">
             <img
-              src={"http://localhost:1338" + place.image.formats.thumbnail.url}
-              alt={"http://localhost:1338" + place.image.alternativeText}
+              src={BASE_URL + place.image.formats.thumbnail.url}
+              alt={BASE_URL + place.image.alternativeText}
             />
             <div className="hotel-card__content">
               <h2>{place.title}</h2>

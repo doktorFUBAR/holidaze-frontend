@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useQuery, gql } from "@apollo/client";
 import Loader from "../Layout/Loader";
+import { BASE_URL } from "../../constants/api";
 
 const FEATURED = gql`
   query GetFeatured {
@@ -34,8 +35,8 @@ export default function FeaturedPlaces() {
           <Link to={`/details/${place.id}`}>
             <div key={place.id} className="hotel-card">
               <img
-                src={"http://localhost:1338" + place.image.url}
-                alt={"http://localhost:1338" + place.image.alternativeText}
+                src={BASE_URL+ place.image.url}
+                alt={BASE_URL + place.image.alternativeText}
               />
               <div className="hotel-card__content">
                 <h2>{place.title}</h2>
