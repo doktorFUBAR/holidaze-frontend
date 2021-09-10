@@ -1,15 +1,13 @@
-import axios from 'axios';
+import useAxios from '../../hooks/useAxios';
 import {React, useContext, useState} from 'react';
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { BASE_URL, HOTELS, UPLOAD } from "../../constants/api";
 import AuthContext from "../../context/AuthContext";
-import FileUpload from './FileUpload';
-//import FileUpload from './FileUpload';
 
 const url = BASE_URL + HOTELS;
-const uploadURL = BASE_URL + UPLOAD;
+
 
 const schema = yup.object().shape({
     hotelName: yup
@@ -22,6 +20,9 @@ const schema = yup.object().shape({
 
    
     export default function AddHotel() {
+        const http = useAxios();
+        
+        const [auth] = useContext(AuthContext);
         const [file, setFile] = useState()
         const {
             register,
@@ -29,26 +30,18 @@ const schema = yup.object().shape({
             formState: { errors },
           } = useForm({ resolver: yupResolver(schema) });
         
-          const [auth, setAuth] = useContext(AuthContext);
-        
     const submitHotel = async (data) => {
         const formData = new FormData();
         console.log(data)
-        formData.append("data", JSON.stringify({title: data.hotelName, rating: data.hotelRating}));
+        formData.append("data", JSON.stringify({title: data.hotelName, rating: data.hotelRating, price: data.hotelPrice, description: data.hotelDescription, slug: data.hotelSlug}));
         formData.append("files.image", file);
         console.log(formData)
 
         try {
-            const response = await fetch (url, {
-                method: 'POST',
-                headers: {
-                    'Authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjMwOTM3ODU4LCJleHAiOjE2MzM1Mjk4NTh9.7hkYRLxNjnAlVTzRZQUYxgFiLFDCn5XhYltn8iU53NI"
-                },
-                body: formData
-            })
-    
-            const data = await response.json();
-            console.log("data", data);
+            if(auth) {
+                await http.post(url, formData)
+            }
+            
     
         } catch (error){
             console.log(error);
@@ -79,6 +72,15 @@ const schema = yup.object().shape({
 
                     <input {...register("hotelRating")} type="text" placeholder="Hotel rating"/>
                     {errors.hotelRating && <span>{errors.hotelRating.message}</span>}
+
+                    <input {...register("hotelPrice")} type="text" placeholder="Hotel price"/>
+                    {errors.hotelPrice && <span>{errors.hotelPrice.message}</span>}
+
+                    <input {...register("hotelSlug")} type="text" placeholder="Hotel slug"/>
+                    {errors.hotelSlug && <span>{errors.hotelSlug.message}</span>}
+
+                    <input {...register("hotelDescription")} type="text" placeholder="Hotel description"/>
+                    {errors.hotelDescription && <span>{errors.hotelDescription.message}</span>}
 
                     <input {...register}type="file" onChange={(e)=>setFile(e.target.files[0])} />
 

@@ -19,10 +19,11 @@ import DashboardHome from "./pages/DashboardHome";
 import Header from "./components/Layout/Header";
 import Footer from "./components/Layout/Footer";
 import LoginModal from "./components/Login/LoginModal";
+import { BASE_URL, GQL } from "./constants/api";
 
 //Apollo Client
 const client = new ApolloClient({
-  uri: "http://localhost:1338/graphql",
+  uri: BASE_URL + GQL,
   cache: new InMemoryCache(),
 });
 

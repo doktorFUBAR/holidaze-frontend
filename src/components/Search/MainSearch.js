@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { BASE_URL, HOTELS } from "../../constants/api";
 
 export default function MainSearch() {
   const [hotels, sethotels] = useState([]);
@@ -12,7 +13,7 @@ export default function MainSearch() {
   useEffect(function () {
     async function fetchData() {
       try {
-        const res = await fetch("http://localhost:1338/places");
+        const res = await fetch(BASE_URL + HOTELS);
         const json = await res.json();
         console.log(json);
         sethotels(json);
@@ -67,10 +68,9 @@ export default function MainSearch() {
                       <li>
                         {option.title}
                         <img
-                          src={"http://localhost:1338" + option.image.url}
+                          src={BASE_URL + option.image.url}
                           alt={
-                            "http://localhost:1338" +
-                            option.image.alternativeText
+                            BASE_URL + option.image.alternativeText
                           }
                         />
                       </li>

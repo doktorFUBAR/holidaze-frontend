@@ -4,16 +4,18 @@ import useFetch from "../../hooks/useFetch";
 
 export default function HotelCollection() {
   const { loading, error, data } = useFetch(BASE_URL + HOTELS);
+  console.log(BASE_URL+HOTELS)
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error</p>;
+
   return (
     <div className="featured-section">
       <div className="hotel-grid">
         {data.map((place) => (
           <div key={place.id} className="hotel-card">
             <img
-              src={BASE_URL + place.image.formats.thumbnail.url}
+              src={BASE_URL + place.image.formats.small.url}
               alt={BASE_URL + place.image.alternativeText}
             />
             <div className="hotel-card__content">
