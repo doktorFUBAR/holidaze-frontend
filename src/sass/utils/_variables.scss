@@ -12,3 +12,14 @@ $color-cabaret: #cf4e74;
 $font-family-main: "Open Sans", sans-serif;
 $font-family-heading: "DM Sans", sans-serif;
 $font-size-default: 1.6rem;
+
+// Breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  mob: 665px,
+  sm: 768px,
+  md: 992px,
+  ml: 1100px,
+  lg: 1290px,
+  xl: 1310px,
+) !default;

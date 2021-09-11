@@ -1,4 +1,12 @@
-.category-container {
+.home-wrapper {
+  max-width: 100vw;
+
+  img {
+    width: 100%;
+  }
+}
+
+/* .category-container {
   margin-top: 20rem;
 }
 
@@ -53,4 +61,4 @@
       transform: scale(1.1);
     }
   }
-}
+} */
