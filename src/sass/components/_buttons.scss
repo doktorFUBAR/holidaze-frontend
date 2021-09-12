@@ -1,5 +1,5 @@
 .btn-main {
-  background: $color-black;
+  background: $color-radical-red;
   padding: 1rem 2rem;
   border-radius: 1rem;
   color: $color-white;
@@ -25,7 +25,7 @@
   background: $color-white;
   padding: 1rem 2rem;
   border-radius: 1rem;
-  color: $color-black;
+  color: $color-radical-red;
   transition: all 500ms ease;
   cursor: pointer;
   font-size: 1.8rem;
@@ -44,7 +44,7 @@
 .circular-btn-main {
   border: none;
   border-radius: 50%;
-  background: $color-black;
+  background: $color-radical-red;
   color: $color-white;
   width: 6rem;
   height: 6rem;
@@ -57,4 +57,14 @@
   &:hover {
     @include button-hover;
   }
+}
+
+.btn-search {
+  display: block;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  background: $color-gray-bright;
+  width: 4rem;
+  height: 4rem;
 }

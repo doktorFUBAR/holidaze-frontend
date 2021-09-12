@@ -1,8 +1,6 @@
 import { React, useState } from "react";
-import { Link } from "react-router-dom";
-import HeroSVG from "../../assets/svg/hero.svg";
+import HeroIMG from "../../assets/3.jpg";
 import MainSearch from "../Search/MainSearch";
-import { FiSearch } from "react-icons/fi";
 
 export default function Hero() {
   const [showSearch, setShowSearch] = useState(false);
@@ -16,21 +14,14 @@ export default function Hero() {
       <div className="hero__content">
         <h1 className="hero__title-main">Explore Bergen</h1>
         <h2 className="hero__title-sub">Find your dream stay</h2>
-        <div className="input-group">
-          <Link to="/hotels" className="btn-main">
-            Explore now
-          </Link>
-          <span className="or-separate">Or</span>
-          <button className="btn-main" onClick={displaySearch}>
-            <FiSearch />
-          </button>
-          <div className={showSearch ? "show-search" : null}>
+
+          <div className="show-search">
             <MainSearch />
           </div>
-        </div>
       </div>
-      <div className="img-gradient">
-        <img src={HeroSVG} alt="Illustration of woman walking" />
+      <div className="hero__img-container">
+        <img src={HeroIMG} alt="Illustration of woman walking" />
+        <div className="img-overlay"></div>
       </div>
     </div>
   );

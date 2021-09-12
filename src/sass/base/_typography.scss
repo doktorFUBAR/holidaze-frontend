@@ -12,5 +12,23 @@ h3 {
 .heading-medium {
   font-size: 4rem;
   line-height: 1;
+  margin: 0 auto;
   margin-bottom: 3rem;
+  text-align: center;
+  max-width: 30rem;
+
+  @include media-breakpoint-up(md) {
+    max-width: 80rem;
+  }
+}
+
+.paragraph {
+  max-width: 40rem;
+  margin: 0 auto;
+  margin-bottom: 3rem;
+
+  @include media-breakpoint-up(md) {
+    max-width: 100rem;
+    font-size: 1.8rem;
+  }
 }

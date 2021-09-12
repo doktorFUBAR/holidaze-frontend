@@ -1,18 +1,21 @@
 .header {
 	background: $color-white;
-	height: 10rem;
+	height: 10vh;
 	position: fixed;
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 4rem;
+	padding: 6rem;
+	top: 0;
+	z-index: 999;
 
 	&__logo {
-		color: $color-mountain-meadow;
+		display: block;
+		width: 20rem;
 
 		@include media-breakpoint-up(md) {
-			font-size: 5rem;
+			width: 24rem;
 		}
 	}
 
@@ -21,8 +24,10 @@
 		color: $color-black;
 		list-style: none;
 		align-items: center;
+		z-index: 999;
 
 		&--open {
+			overflow-y: hidden;
 			font-size: 4rem;
 			display: flex;
 			flex-direction: column;

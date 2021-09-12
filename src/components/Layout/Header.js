@@ -3,7 +3,9 @@ import { Link, useHistory } from "react-router-dom";
 import { AiOutlineUser } from "react-icons/ai";
 import { IoLogOutOutline } from "react-icons/io5";
 import AuthContext from "../../context/AuthContext";
-import { RiMenu4Line, RiCloseLine } from "react-icons/ri"
+import { RiCloseLine } from "react-icons/ri";
+import { CgMenuRightAlt } from "react-icons/cg";
+import Logo from "../../assets/svg/logo.svg";
 
 export default function Header({ handleClick }) {
   const [auth, setAuth] = useContext(AuthContext);
@@ -20,11 +22,11 @@ export default function Header({ handleClick }) {
     <div className="header">
       {/* Erstatt med logo */}
       <Link to="/" onClick={() => setOpen(false)}>
-        <h1 className="header__logo">Holidaze</h1>
+        <img className="header__logo" src={Logo} alt="Holidaze logo" />
       </Link>
       
         <div className="header__hamburger" onClick={() => setOpen(!open)}>
-          {open? <RiCloseLine/> : <RiMenu4Line />}
+          {open? <RiCloseLine/> : <CgMenuRightAlt />}
         </div>
         <nav>
           <ul className={open ? "header__links--open" : "header__links"}>

@@ -8,8 +8,10 @@ import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 export default function Categories() {
   return (
     <div className="categories">
-      <Link to="/hotels">
+      <div className="slider-container">
+
         <div className="category">
+        <Link to="/hotels">
           <div className="category-img-container">
             <img className="categories__image" src={Hotels} alt="Hotels" />
           </div>
@@ -20,11 +22,13 @@ export default function Categories() {
             </span>
           </h5>
           {/* Code to indicate how many hotels */}
+        </Link>
         </div>
-      </Link>
+ 
 
-      <Link to="/hotels">
+      
         <div className="category">
+        <Link to="/hotels">
           <div className="category-img-container">
             <img
               className="categories__image"
@@ -39,11 +43,13 @@ export default function Categories() {
             </span>
           </h5>
           {/* Code to indicate how many hotels */}
+          </Link>
         </div>
-      </Link>
 
-      <Link to="/hotels">
+
+      
         <div className="category">
+        <Link to="/hotels">
           <div className="category-img-container">
             <img
               className="categories__image"
@@ -58,8 +64,10 @@ export default function Categories() {
             </span>
           </h5>
           {/* Code to indicate how many hotels */}
+          </Link>
         </div>
-      </Link>
+
+      </div>
     </div>
   );
 }

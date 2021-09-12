@@ -2,6 +2,7 @@
 @import "./utils/variables";
 @import "./utils/mixins";
 @import "./utils/breakpoints";
+@import "./utils/utils";
 
 // Base
 @import "./base/fonts";
@@ -14,8 +15,8 @@
 @import "./components/buttons";
 @import "./components/hero";
 @import "./components/search-bar";
-@import "./components/newsletter";
 @import "./components/hotel-grid";
+@import "./components/cta";
 
 // Layout
 @import "./layout/navigation";

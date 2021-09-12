@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useQuery, gql } from "@apollo/client";
 import Loader from "../Layout/Loader";
 import { BASE_URL } from "../../constants/api";
+import { GiRoundStar } from "react-icons/gi"
 
 const FEATURED = gql`
   query GetFeatured {
@@ -44,7 +45,10 @@ export default function FeaturedPlaces() {
                   <span>From </span>
                   <span className="price-number">{place.price} NOK</span>
                 </div>
-                <div className="rating">{place.rating}</div>
+                <div className="hotel-card__bottom">
+                  <div className="rating"><span className="rating__icon"><GiRoundStar/></span>{place.rating}</div>
+                  <div className="featured-badge">Popular</div>
+                </div>
               </div>
             </div>
           </Link>
