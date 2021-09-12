@@ -1,10 +1,10 @@
 import React from "react";
-import HotelCollection from "../components/Hotels/HotelCollection";
+import Category from "../components/Hotels/Category";
 
 export default function Hotels() {
   return (
-    <div>
-      <HotelCollection />
-    </div>
+    <>
+      <Category />
+    </>
   );
 }
