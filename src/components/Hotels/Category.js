@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { BASE_URL } from '../../constants/api';
 import { GiRoundStar } from 'react-icons/gi';
 import HotelCollection from './HotelCollection';
+import {RiArrowDropDownFill} from "react-icons/ri"
 
 const CATEGORY = gql`
   query GetCategory($id: ID!) {
@@ -37,15 +38,18 @@ export default function Category() {
     return (
         <div className="places-page">
             <h1>Places</h1>
+            <div className="place-filter">
             <select
             onChange={(e) => {setFilterParam(e.target.value)}}
-            name="filter" className="place-filter">
-                <option value="1">All</option>
-                <option value="2">Hotels</option>
-                <option value="3">Bed &amp; Breakfast</option>
-                <option value="4">Guesthouses</option>
+            name="filter">
+                <option className="place-filter__option" value="1">All</option>
+                <option className="place-filter__option" value="2">Hotels</option>
+                <option className="place-filter__option" value="3">Bed &amp; Breakfast</option>
+                <option className="place-filter__option" value="4">Guesthouses</option>
             </select>
-            
+            <span className="place-filter__arrow"><RiArrowDropDownFill /></span>
+            </div>
+
             {filterParam === "1" ?
              <HotelCollection />
              :
