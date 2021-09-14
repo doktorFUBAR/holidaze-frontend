@@ -4,6 +4,7 @@ import Login from "../../assets/svg/login.svg";
 import LoginForm from "./LoginForm";
 
 export default function LoginModal({ shown, close }) {
+
   return shown ? (
     <>
       <div

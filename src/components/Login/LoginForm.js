@@ -6,6 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
 import { BASE_URL, TOKEN_PATH } from "../../constants/api";
 import AuthContext from "../../context/AuthContext";
+import LoginModal from "./LoginModal";
 
 const url = BASE_URL + TOKEN_PATH;
 
@@ -53,6 +54,7 @@ export default function LoginForm() {
       setLoginError(error.toString());
     } finally {
       setSubmitting(false);
+      window.location.reload(); // The least amount of code to remove the modal on login
     }
   };
 
@@ -60,6 +62,7 @@ export default function LoginForm() {
 
   return (
     <div>
+      <LoginModal />
       <form onSubmit={handleSubmit(onSubmit)} className="modal__right">
         {loginError && <p>{loginError}</p>}
         <h2 className="heading-medium">Login</h2>

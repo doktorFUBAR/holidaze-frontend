@@ -16,39 +16,64 @@
   border-radius: 1.5rem;
   background: $color-white;
   display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  height: 50vh;
+  height: 90vh;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   position: fixed;
   z-index: 9999;
-  width: 50%;
+  width: 90%;
+
+  @include media-breakpoint-up(mob) {
+    flex-direction: row;
+    height: 70vh;
+    width: 80%;
+  }
 
   &__left {
-    border-radius: 1.5rem 0 0 1.5rem;
+    border-radius: 1.5rem 1.5rem 0 0;
     display: grid;
     place-items: center;
     padding: 3rem;
     background: $color-cabaret;
-    height: 100%;
-    width: 50%;
+    height: 60%;
+    width: 100%;
     img {
-      width: 100%;
+      width: 60%;
+    }
+
+    @include media-breakpoint-up(mob) {
+      width: 50%;
+      border-radius: 1.5rem 0 0 1.5rem;
+      height: 100%;
+
+      img {
+        height: 100%;
+      }
     }
   }
 
   &__right {
+    display: grid;
+    place-items: center;
     width: 50%;
+    height: 100%;
 
     form {
       height: 100%;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
-      justify-content: space-evenly;
+      justify-content: center;
       align-items: center;
+      width: 100%;
+
+      @include media-breakpoint-up(mob) {
+        width: 70%;
+      }
     }
 
     fieldset {
