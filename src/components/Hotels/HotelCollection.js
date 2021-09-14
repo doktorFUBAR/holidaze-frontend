@@ -10,7 +10,6 @@ export default function HotelCollection() {
   if (error) return <p>Error</p>;
 
   return (
-    <div className="featured-section">
       <div className="hotel-grid">
         {data.map((place) => (
           <div key={place.id} className="hotel-card">
@@ -29,6 +28,5 @@ export default function HotelCollection() {
           </div>
         ))}
       </div>
-    </div>
   );
 }
