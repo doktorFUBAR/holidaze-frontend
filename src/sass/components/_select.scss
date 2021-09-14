@@ -3,11 +3,13 @@
   margin-bottom: 3rem;
 
   select {
+    -webkit-appearance: none;
     padding: 1rem;
     background: $color-black;
     color: $color-white;
     border: 0;
     padding: 1rem 6rem 1rem 1.5rem;
+    height: 4.5rem;
   }
 
   &__arrow {
