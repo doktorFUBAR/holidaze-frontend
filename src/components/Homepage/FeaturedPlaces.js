@@ -9,13 +9,13 @@ const FEATURED = gql`
   query GetFeatured {
     category(id: 1) {
       places {
-        title
-        rating
-        image {
+        Title
+        Rating
+        Image {
           url
           alternativeText
         }
-        price
+        Price
         id
       }
     }
@@ -35,18 +35,19 @@ export default function FeaturedPlaces() {
         {data.category.places.map((place) => (
           <Link to={`/details/${place.id}`}>
             <div key={place.id} className="hotel-card">
+              {console.log(place.Image.url)}
               <img
-                src={BASE_URL+ place.image.url}
-                alt={BASE_URL + place.image.alternativeText}
+                src={place.Image[0].url}
+                alt={place.Image[0].alternativeText}
               />
               <div className="hotel-card__content">
-                <h2>{place.title}</h2>
+                <h2>{place.Title}</h2>
                 <div className="price">
                   <span>From </span>
-                  <span className="price-number">{place.price} NOK</span>
+                  <span className="price-number">{place.Price} NOK</span>
                 </div>
                 <div className="hotel-card__bottom">
-                  <div className="rating"><span className="rating__icon"><GiRoundStar/></span>{place.rating}</div>
+                  <div className="rating"><span className="rating__icon"><GiRoundStar/></span>{place.Rating}</div>
                   <div className="featured-badge">Popular</div>
                 </div>
               </div>

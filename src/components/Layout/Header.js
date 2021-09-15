@@ -6,6 +6,7 @@ import AuthContext from "../../context/AuthContext";
 import { RiCloseLine } from "react-icons/ri";
 import { CgMenuRightAlt } from "react-icons/cg";
 import Logo from "../../assets/svg/logo.svg";
+import { motion } from "framer-motion";
 
 export default function Header({ handleClick }) {
   const [auth, setAuth] = useContext(AuthContext);
@@ -47,16 +48,24 @@ export default function Header({ handleClick }) {
               </Link>
 
               <li>
-                <button className="circular-btn-main" onClick={logout}>
+                <motion.button className="circular-btn-main"
+                onClick={logout}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                >
                   <IoLogOutOutline />
-                </button>
+                </motion.button>
               </li>
             </>
           ) : (
             <li>
-              <button className="circular-btn-main" onClick={handleClick}>
+              <motion.button className="circular-btn-main"
+              onClick={handleClick}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              >
                 <AiOutlineUser />
-              </button>
+              </motion.button>
             </li>
           )}
          </ul>

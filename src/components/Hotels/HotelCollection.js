@@ -14,16 +14,16 @@ export default function HotelCollection() {
         {data.map((place) => (
           <div key={place.id} className="hotel-card">
             <img
-              src={BASE_URL + place.image.formats.small.url}
-              alt={BASE_URL + place.image.alternativeText}
+              src={place.Image[0].url}
+              alt={place.Image[0].alternativeText}
             />
             <div className="hotel-card__content">
-              <h2>{place.title}</h2>
+              <h2>{place.Title}</h2>
               <div className="price">
                 <span>From </span>
-                <span>{place.price} NOK</span>
+                <span>{place.Price} NOK</span>
               </div>
-              <div className="rating">{place.rating}</div>
+              <div className="rating">{place.Rating}</div>
             </div>
           </div>
         ))}

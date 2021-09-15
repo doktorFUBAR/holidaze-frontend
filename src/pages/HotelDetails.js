@@ -7,14 +7,14 @@ import { BASE_URL } from "../constants/api";
 const HOTEL = gql`
   query getHotel($id: ID!) {
     place(id: $id) {
-      title
-      description
-      image {
+      Title
+      Description
+      Image {
         url
         alternativeText
       }
-      rating
-      price
+      Rating
+      Price
       id
     }
   }
@@ -32,17 +32,17 @@ export default function HotelDetails() {
   return (
     <div className="hotel-details">
       <img
-        src={BASE_URL + data.place.image.url}
-        alt={BASE_URL + data.place.image.alternativeText}
+        src={data.place.Image[0].url}
+        alt={data.place.Image[0].alternativeText}
       />
       <div className="hotel-card__content">
-        <h2>{data.place.title}</h2>
-        <p className="description">{data.place.description}</p>
+        <h2>{data.place.Title}</h2>
+        <p className="description">{data.place.Description}</p>
         <div className="price">
           <span>From </span>
-          <span className="price-number">{data.place.price} NOK</span>
+          <span className="price-number">{data.place.Price} NOK</span>
         </div>
-        <div className="rating">{data.place.rating}</div>
+        <div className="rating">{data.place.Rating}</div>
       </div>
     </div>
   );
