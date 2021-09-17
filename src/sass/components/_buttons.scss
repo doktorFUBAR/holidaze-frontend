@@ -12,28 +12,8 @@
   z-index: 999;
 
   &:hover {
-    @include button-hover;
-  }
-
-  a:visited {
-    color: $color-white;
-  }
-}
-
-.btn-secondary {
-  border: none;
-  background: $color-white;
-  padding: 1rem 2rem;
-  border-radius: 1rem;
-  color: $color-radical-red;
-  transition: all 500ms ease;
-  cursor: pointer;
-  font-size: 1.8rem;
-  font-weight: bold;
-  height: 5rem;
-
-  &:hover {
-    @include button-secondary-hover;
+    border-radius: 0.5rem;
+    background: darken($color-radical-red, 5%);
   }
 
   a:visited {
@@ -46,8 +26,8 @@
   border-radius: 50%;
   background: $color-radical-red;
   color: $color-white;
-  width: 6rem;
-  height: 6rem;
+  width: 5rem;
+  height: 5rem;
   font-size: 3rem;
   display: grid;
   place-items: center;
@@ -55,16 +35,6 @@
   transition: all 500ms ease;
 
   &:hover {
-    @include button-hover;
+    background: darken($color-radical-red, 5%);
   }
-}
-
-.btn-search {
-  display: block;
-  cursor: pointer;
-  border: none;
-  border-radius: 50%;
-  background: $color-gray-bright;
-  width: 4rem;
-  height: 4rem;
 }

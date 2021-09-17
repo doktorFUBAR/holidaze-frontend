@@ -1,6 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import Button from '../Common/Button';
 
 export default function ExploreCta() {
     return (
@@ -9,10 +9,7 @@ export default function ExploreCta() {
                 Expierence Bergen your way
             </h2>
             <Link to="/places">
-                <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                className="btn-main">Explore</motion.button>
+                <Button text="Explore" />
             </Link>
         </div>
     )

@@ -1,24 +1,41 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { BASE_URL, MESSAGES } from "../../constants/api";
-import useFetch from "../../hooks/useFetch";
+import useAxios from '../../hooks/useAxios';
+
+const url = BASE_URL + MESSAGES;
 
 export default function Messages() {
-  const { loading, error, data } = useFetch(BASE_URL + MESSAGES);
+  const http = useAxios();
+  const [messages, setMessages] = useState([]);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error</p>;
+  useEffect(() => {
+    async function fetchData() {
+        try {
+            const response = await http.get(url);
+            setMessages(response.data);
+        } catch (error) {
+            console.error(error)
+        }
+    }; fetchData(); 
+}, []);
 
-  return (
-    <div className="messages">
-      {data.map((message) => (
-          <div key={message.id} className="message-card">
-            <div className="message-card__content">
-              <h2>{message.title}</h2>
-              <h3>{message.email}</h3>
-              <p>{message.message}</p>
+
+
+console.log(messages)
+
+    return (
+      <>
+      <div className="messages">
+        {messages.map((message) => (
+            <div key={message.id} className="message-card">
+              <div className="message-card__content">
+                <h2>{message.Name}</h2>
+                <h3>{message.Email}</h3>
+                <p>{message.Message}</p>
+              </div>
             </div>
-          </div>
-        ))}
-    </div>
-  )
+          ))}
+      </div>
+      </>
+    )
 }

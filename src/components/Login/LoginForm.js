@@ -7,6 +7,7 @@ import axios from "axios";
 import { BASE_URL, TOKEN_PATH } from "../../constants/api";
 import AuthContext from "../../context/AuthContext";
 import LoginModal from "./LoginModal";
+import Button from "../Common/Button";
 
 const url = BASE_URL + TOKEN_PATH;
 
@@ -80,9 +81,7 @@ export default function LoginForm() {
             placeholder="Type your password"
           />
           {errors.password && <span>{errors.password.message}</span>}
-          <button type="submit" className="btn-main">
-            {submitting ? "Logging in..." : "Login"}
-          </button>
+          <Button type="submit" className="btn-main" text={submitting ? "Logging in..." : "Login"}/>
         </fieldset>
       </form>
     </div>

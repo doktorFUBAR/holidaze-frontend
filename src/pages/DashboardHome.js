@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import AddHotel from "../components/Dashboard/AddHotel";
-import DashboardNav from "../components/Dashboard/DashboardNav";
 import Messages from "../components/Dashboard/Messages";
+import AuthContext from "../context/AuthContext";
+
 
 export default function DashboardHome() {
-  return (
-    <div className="dashboard-home">
-      <DashboardNav />
-      <AddHotel />
-      <Messages />
-    </div>
-  );
+  const [auth] = useContext(AuthContext);
+
+  if(auth) {
+    return (
+      <div className="dashboard-home">
+        <AddHotel />
+        <Messages />
+      </div>
+    );
+  }
+
 }

@@ -1,7 +1,0 @@
-@mixin button-hover {
-  background: lighten($color-black, 10%);
-}
-
-@mixin button-secondary-hover {
-  background: darken($color-white, 10%);
-}
