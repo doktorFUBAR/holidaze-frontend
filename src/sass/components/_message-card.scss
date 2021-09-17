@@ -1,0 +1,21 @@
+.message-card {
+  background: $color-white;
+  padding: 1rem 2rem;
+  border-radius: 1.5rem;
+  width: 40rem;
+  max-width: 40rem;
+
+  &__name {
+  }
+
+  &__date {
+  }
+
+  &__excerpt {
+    color: $color-gray;
+  }
+}
+
+.full-message {
+  margin-top: 40rem;
+}

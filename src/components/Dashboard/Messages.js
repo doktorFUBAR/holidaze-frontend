@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { BASE_URL, MESSAGES } from "../../constants/api";
 import useAxios from '../../hooks/useAxios';
+import moment from 'moment';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const url = BASE_URL + MESSAGES;
 
@@ -19,21 +22,21 @@ export default function Messages() {
     }; fetchData(); 
 }, []);
 
-
-
-console.log(messages)
-
     return (
       <>
       <div className="messages">
         {messages.map((message) => (
-            <div key={message.id} className="message-card">
-              <div className="message-card__content">
-                <h2>{message.Name}</h2>
-                <h3>{message.Email}</h3>
-                <p>{message.Message}</p>
-              </div>
-            </div>
+            <motion.div
+            key={message.id}
+            className="message-card"
+            whileHover={{ scale: 1.07 }}
+            whileTap={{ scale: 0.9 }}
+            >
+            
+                <h2 className="message-card__name">{message.Name}</h2>
+                <h3 className="message-card__date">{moment(message.published_at).format("DD.MM.YYYY - HH:mm")}</h3>
+                <p className="message-card__excerpt">{message.Content.substring(0, 30)}...</p>
+            </motion.div>
           ))}
       </div>
       </>

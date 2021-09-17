@@ -2,7 +2,6 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useQuery, gql } from "@apollo/client";
 import Loader from "../components/Layout/Loader";
-import { BASE_URL } from "../constants/api";
 
 const HOTEL = gql`
   query getHotel($id: ID!) {
