@@ -1,22 +1,20 @@
 import { React, useState } from 'react'
-import { useForm } from "react-hook-form";
+import { set, useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import axios from 'axios';
-import { BASE_URL } from '../../constants/api';
+import { BASE_URL, MESSAGES } from '../../constants/api';
+import Button from "../Common/Button";
 
-const url = BASE_URL;
+const url = BASE_URL + MESSAGES;
 
 const schema = yup.object().shape({
-  email: yup
+  Email: yup
     .string()
     .required("Please enter your email address.")
     .email("Please enter a valid email address"),
-  name: yup.string().required("Your name is required"),
-  message: yup.string().required("Please write a message"),
-  passwordConfirmation: yup
-    .string()
-    .oneOf([yup.ref("password"), null], "Passwords must match"),
+  Name: yup.string().required("Your name is required"),
+  Content: yup.string().required("Please write a message"),
 });
 
 export default function ContactForm() {
@@ -30,55 +28,40 @@ export default function ContactForm() {
   } = useForm({ resolver: yupResolver(schema) });
 
   const onSubmit = async (data) => {
+    const formData = new FormData();
+    console.log(data)
+    formData.append("data", JSON.stringify({Name: data.Name, Email: data.Email, Content: data.Content}));
+    console.log(formData)
     setSubmitting(true);
     setSubmitError(null);
 
     console.log(data);
 
     try {
-      const res = await axios.post(url, {
-        //identifier: data.email,
-        //password: data.password,
-      });
-      console.log("response", res.data);
-    } catch (error) {
-      console.log("error", error);
-    } finally {
-      setSubmitting(false);
+      await axios.post(url, data)
+      } catch (error){
+      console.log(error);
+      }
+      finally {
+        setSubmitting(false)
+      }
      
-    }
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="modal__right">
-      {submitError && <p>{submitError}</p>}
-      <h2 className="heading-medium">Login</h2>
-      <fieldset disabled={submitting}>
-        {" "}
-        <input
-          {...register("email")}
-          type="text"
-          placeholder="Your email"
-        />
-        {errors.email && <span>{errors.email.message}</span>}
+    <div className="contact-form">
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input {...register("Name")} type="text" placeholder="Your name"/>
+      {errors.Name && <span>{errors.Name.message}</span>}
 
-        <input
-          {...register("name")}
-          type="text"
-          placeholder="Your name"
-        />
-        {errors.name && <span>{errors.name.message}</span>}
+      <input {...register("Email")} type="text" placeholder="You email"/>
+      {errors.Email && <span>{errors.Email.message}</span>}
 
-        <textarea
-          {...register("message")}
-          placeholder="Your message"
-        />
-        {errors.message && <span>{errors.message.message}</span>}
+      <textarea {...register("Content")} type="text" placeholder="Your message"/>
+      {errors.Content && <span>{errors.Content.message}</span>}
 
-        <button type="submit" className="btn-main">
-          {submitting ? "Sending..." : "Login"}
-        </button>
-      </fieldset>
-      </form>
+        <Button type="submit" className="btn-main" text={submitting ? "Sending..." : "Send"} />
+    </form>
+    </div>
   )
 }
