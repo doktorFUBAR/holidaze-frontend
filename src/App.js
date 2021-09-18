@@ -13,7 +13,8 @@ import HomePage from "./pages/HomePage";
 import HotelDetails from "./pages/HotelDetails";
 import Hotels from "./pages/Hotels";
 import Contact from "./pages/Contact";
-import DashboardHome from "./pages/DashboardHome";
+import Dashboard from "./pages/Dashboard";
+import Booking from "./pages/Booking";
 
 // Layout/component imports
 import Header from "./components/Layout/Header";
@@ -53,11 +54,14 @@ function App() {
               <Route path="/places">
                 <Hotels />
               </Route>
+              <Route path="/booking/:id">
+                <Booking />
+              </Route>
               <Route path="/contact">
                 <Contact />
               </Route>
               <Route path="/dashboard">
-                <DashboardHome />
+                <Dashboard />
               </Route>
             </Switch>
             <Footer />

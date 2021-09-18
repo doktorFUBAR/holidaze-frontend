@@ -1,6 +1,8 @@
 import React from "react";
 import { BASE_URL, HOTELS } from "../../constants/api";
 import useFetch from "../../hooks/useFetch";
+import { GiRoundStar } from "react-icons/gi"
+import { Link } from "react-router-dom";
 
 export default function HotelCollection() {
   const { loading, error, data } = useFetch(BASE_URL + HOTELS);
@@ -12,6 +14,7 @@ export default function HotelCollection() {
   return (
       <div className="hotel-grid">
         {data.map((place) => (
+          <Link to={`/details/${place.id}`}>
           <div key={place.id} className="hotel-card">
             <img
               src={place.Image[0].url}
@@ -23,9 +26,10 @@ export default function HotelCollection() {
                 <span>From </span>
                 <span>{place.Price} NOK</span>
               </div>
-              <div className="rating">{place.Rating}</div>
+              <div className="rating"><span className="rating__icon"><GiRoundStar/></span>{place.Rating}</div>
             </div>
           </div>
+          </Link>
         ))}
       </div>
   );

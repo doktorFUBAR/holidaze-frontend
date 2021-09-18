@@ -21,7 +21,6 @@ export default function Header({ handleClick }) {
 
   return (
     <div className="header">
-      {/* Erstatt med logo */}
       <Link to="/" onClick={() => setOpen(false)}>
         <img className="header__logo" src={Logo} alt="Holidaze logo" />
       </Link>

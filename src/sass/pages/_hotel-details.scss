@@ -1,0 +1,36 @@
+.hotel-details {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 15rem auto;
+
+  &__image {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 1.5rem;
+  }
+
+  &__description {
+    margin-bottom: 2rem;
+  }
+
+  &__price {
+    margin-bottom: 2rem;
+  }
+
+  .rating {
+    margin-bottom: 2rem;
+  }
+
+  @include media-breakpoint-up(md) {
+    flex-direction: row;
+
+    &__image {
+      width: 80rem;
+    }
+
+    &__description {
+      max-width: 40rem;
+    }
+  }
+}

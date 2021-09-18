@@ -1,14 +1,30 @@
-.dashboard-home {
+.dashboard {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
 
-  margin-top: 10rem;
-
-  form {
+  &__menu {
+    position: fixed;
+    left: 0;
+    top: 0;
     display: flex;
     flex-direction: column;
-    margin-top: 10rem;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 20%;
+    background: $color-white;
+
+    ul {
+      list-style: none;
+    }
+  }
+
+  &__right {
+    margin-left: 30%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
