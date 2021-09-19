@@ -24,7 +24,7 @@ export default function HotelCollection() {
               <h2>{place.Title}</h2>
               <div className="price">
                 <span>From </span>
-                <span>{place.Price} NOK</span>
+                <span className="price-number">{place.Price} NOK</span>
               </div>
               <div className="rating"><span className="rating__icon"><GiRoundStar/></span>{place.Rating}</div>
             </div>

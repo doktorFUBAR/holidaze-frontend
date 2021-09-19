@@ -57,13 +57,13 @@
     object-fit: cover;
     transition: transform 0.5s ease;
   }
+}
 
-  a {
+a {
+  color: $color-black;
+
+  &:visited {
     color: $color-black;
-
-    &:visited {
-      color: $color-black;
-    }
   }
 }
 
