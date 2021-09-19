@@ -61,7 +61,7 @@ function App() {
               <Route path="/contact">
                 <Contact />
               </Route>
-              <Route exact="/dashboard">
+              <Route path="/dashboard">
                 <Dashboard />
               </Route>
               <Route>
