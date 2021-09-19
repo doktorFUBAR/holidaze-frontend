@@ -1,5 +1,5 @@
 import { React, useContext, useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, NavLink, useHistory } from "react-router-dom";
 import { AiOutlineUser } from "react-icons/ai";
 import { IoLogOutOutline } from "react-icons/io5";
 import AuthContext from "../../context/AuthContext";
@@ -30,21 +30,21 @@ export default function Header({ handleClick }) {
         </div>
         <nav>
           <ul className={open ? "header__links--open" : "header__links"}>
-            <Link exact to="/" onClick={() => setOpen(false)}>
+            <NavLink exact to="/" onClick={() => setOpen(false)} activeClassName="active">
               <li className="header__item">Home</li>
-            </Link>
-            <Link to="/places" onClick={() => setOpen(false)}>
+            </NavLink>
+            <NavLink to="/places" onClick={() => setOpen(false)} activeClassName="active">
               <li className="header__item">Places</li>
-            </Link>
-            <Link to="/contact" onClick={() => setOpen(false)}>
+            </NavLink>
+            <NavLink to="/contact" onClick={() => setOpen(false)} activeClassName="active">
               <li className="header__item">Contact</li>
-            </Link>
+            </NavLink>
 
           {auth ? (
             <>
-              <Link to="/dashboard" onClick={() => setOpen(false)}>
+              <NavLink to="/dashboard" onClick={() => setOpen(false)} activeClassName="active">
                 <li className="header__item">Dashboard</li>
-              </Link>
+              </NavLink>
 
               <li>
                 <motion.button className="circular-btn-main"

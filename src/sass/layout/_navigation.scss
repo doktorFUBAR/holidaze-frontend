@@ -1,80 +1,87 @@
 .header {
-	background: $color-white;
-	height: 10vh;
-	position: fixed;
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 6rem;
-	top: 0;
-	z-index: 999;
+  background: $color-white;
+  height: 10vh;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6rem;
+  top: 0;
+  z-index: 999;
 
-	&__logo {
-		display: block;
-		width: 20rem;
+  &__logo {
+    display: block;
+    width: 20rem;
 
-		@include media-breakpoint-up(md) {
-			width: 24rem;
-		}
-	}
+    @include media-breakpoint-up(md) {
+      width: 24rem;
+    }
+  }
 
-	&__links {
-		display: none;
-		color: $color-black;
-		list-style: none;
-		align-items: center;
-		z-index: 999;
+  &__links {
+    display: none;
+    color: $color-black;
+    list-style: none;
+    align-items: center;
+    z-index: 999;
 
-		&--open {
-			overflow-y: hidden;
-			font-size: 4rem;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
-			background: $color-white;
-			height: 100vh;
-			list-style: none;
-		}
+    &--open {
+      overflow-y: hidden;
+      font-size: 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: $color-white;
+      height: 100vh;
+      list-style: none;
+    }
 
-		@include media-breakpoint-up(md) {
-			display: flex;
-		}
-	}
+    @include media-breakpoint-up(md) {
+      display: flex;
+    }
+  }
 
-	&__item {
-		padding: 1rem;
-		border-radius: 0.3rem;
-		transition: all 500ms ease;
-		color: $color-black;
+  &__item {
+    padding: 1rem;
+    border-radius: 0.3rem;
+    transition: all 500ms ease;
+    color: $color-black;
 
-		a {
-			color: $color-black;
-		}
+    a {
+      color: $color-black;
+    }
 
-		a:visited {
-			color: $color-black;
-		}
-	
-		&:hover {
-		  background: darken($color-white, 5%);
-		}
-	}
+    a:visited {
+      color: $color-black;
+    }
 
-	&__hamburger {
-		position: absolute;
-		right: 4rem;
-		font-size: 4rem;
-		cursor: pointer;
-		z-index: 9999;
+    &:hover {
+      background: darken($color-white, 5%);
+      border-radius: 0.5rem;
+    }
+  }
 
-		@include media-breakpoint-up(md) {
-			display: none;
-		}
-	}
+  &__hamburger {
+    position: absolute;
+    right: 4rem;
+    font-size: 4rem;
+    cursor: pointer;
+    z-index: 9999;
+
+    @include media-breakpoint-up(md) {
+      display: none;
+    }
+  }
+}
+
+.active {
+  position: relative;
+  background: darken($color-white, 5%);
+  border-radius: 0.5rem;
 }
