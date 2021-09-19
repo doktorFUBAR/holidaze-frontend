@@ -19,16 +19,16 @@ export default function Dashboard() {
         <DashboardMenu />
           <Switch>
           <div className="dashboard__right">
-          <Route path="/dashboard">
+          <Route exact path="/dashboard">
               <DashboardHome />
           </Route>
-          <Route path="/add-hotel">
+          <Route path="/dashboard/add-hotel">
               <AddHotel />
           </Route>
-          <Route path="/messages">
+          <Route path="/dashboard/messages">
               <Messages />
           </Route>
-          <Route path="/booking-requests">
+          <Route path="/dashboard/booking-requests">
               <Enquiries />
           </Route>
           </div>

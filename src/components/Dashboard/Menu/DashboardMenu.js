@@ -20,13 +20,13 @@ export default function DashboardMenu() {
         <Link to="/dashboard">
           <li><AiFillHome /> Dashboard</li>
         </Link>
-        <Link to="/add-hotel">
+        <Link to="/dashboard/add-hotel">
           <li><IoMdAddCircle /> Add hotel</li>
         </Link>
-        <Link to="/messages">
+        <Link to="/dashboard/messages">
           <li><FaInbox /> Messages</li>
         </Link>
-        <Link to="/booking-requests">
+        <Link to="/dashboard/booking-requests">
           <li><RiHotelFill /> Booking</li>
         </Link>
         </ul>

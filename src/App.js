@@ -15,6 +15,7 @@ import Hotels from "./pages/Hotels";
 import Contact from "./pages/Contact";
 import Dashboard from "./pages/Dashboard";
 import Booking from "./pages/Booking";
+import NoMatch from "./pages/NoMatch";
 
 // Layout/component imports
 import Header from "./components/Layout/Header";
@@ -60,8 +61,11 @@ function App() {
               <Route path="/contact">
                 <Contact />
               </Route>
-              <Route path="/dashboard">
+              <Route exact path="/dashboard">
                 <Dashboard />
+              </Route>
+              <Route>
+                <NoMatch />
               </Route>
             </Switch>
             <Footer />
