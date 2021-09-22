@@ -55,7 +55,7 @@ export default function MainSearch() {
                   if (search > 0) {
                     return value;
                   } else if (
-                    value.title.toLowerCase().includes(search.toLowerCase())
+                    value.Title.toLowerCase().includes(search.toLowerCase())
                   ) {
                     return value;
                   } else {
@@ -66,12 +66,10 @@ export default function MainSearch() {
                   return (
                     <Link key={option.id} to={`details/${option.id}`}>
                       <li>
-                        {option.title}
+                        {option.Title}
                         <img
-                          src={BASE_URL + option.image.url}
-                          alt={
-                            BASE_URL + option.image.alternativeText
-                          }
+                          src={option.Image[0].url}
+                          alt={option.Image[0].alternativeText}
                         />
                       </li>
                     </Link>
