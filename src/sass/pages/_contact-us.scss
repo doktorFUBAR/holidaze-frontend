@@ -1,9 +1,19 @@
 .contact-us {
   margin-top: 15rem;
 
+  @include media-breakpoint-up(md) {
+    display: flex;
+    padding: 5%;
+    justify-content: space-around;
+  }
+
   &__content {
     width: 90%;
     margin: 0 auto;
+
+    @include media-breakpoint-up(md) {
+      max-width: 50rem;
+    }
 
     p {
       margin-bottom: 1rem;
@@ -16,6 +26,10 @@
     margin: 2rem auto;
     width: 90%;
     height: 30rem;
+
+    @include media-breakpoint-up(md) {
+      width: 50%;
+    }
 
     input {
       border: none;
