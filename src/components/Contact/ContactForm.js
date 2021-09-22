@@ -51,12 +51,15 @@ export default function ContactForm() {
   return (
     <>
     <form className="contact-us__form" onSubmit={handleSubmit(onSubmit)}>
+      <label className="contact-us__label" for="Name">Full name</label>
       <input {...register("Name")} type="text" placeholder="Your name"/>
       {errors.Name && <span className="form-error">{errors.Name.message}</span>}
 
+      <label className="contact-us__label" for="Email">Email</label>
       <input {...register("Email")} type="text" placeholder="You email"/>
       {errors.Email && <span className="form-error">{errors.Email.message}</span>}
 
+      <label className="contact-us__label" for="Content">Message</label>
       <textarea {...register("Content")} type="text" placeholder="Your message"/>
       {errors.Content && <span className="form-error">{errors.Content.message}</span>}
 
