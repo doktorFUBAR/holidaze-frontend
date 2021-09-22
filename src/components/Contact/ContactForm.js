@@ -1,10 +1,11 @@
 import { React, useState } from 'react'
-import { set, useForm } from "react-hook-form";
+import { useForm, reset } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import axios from 'axios';
 import { BASE_URL, MESSAGES } from '../../constants/api';
 import Button from "../Common/Button";
+import { ImCheckboxChecked } from "react-icons/im";
 
 const url = BASE_URL + MESSAGES;
 
@@ -20,10 +21,12 @@ const schema = yup.object().shape({
 export default function ContactForm() {
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState(null);
+  const [submitMessage, setSubmitMessage] = useState(false);
 
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
@@ -44,6 +47,8 @@ export default function ContactForm() {
       }
       finally {
         setSubmitting(false)
+        reset({})
+        setSubmitMessage(true);
       }
      
   };
@@ -64,6 +69,8 @@ export default function ContactForm() {
       {errors.Content && <span className="form-error">{errors.Content.message}</span>}
 
         <Button type="submit" className="btn-main" text={submitting ? "Sending..." : "Send"} />
+
+      {submitMessage ? <p className="form-success"><ImCheckboxChecked /> Thank you for contacting us!</p> : null}
     </form>
     </>
   )
