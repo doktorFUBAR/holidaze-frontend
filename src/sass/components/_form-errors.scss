@@ -1,0 +1,9 @@
+.form-error {
+  color: $color-error;
+  background: $color-error-light;
+  text-align: center;
+  border-radius: 5px;
+  padding: 0.2rem;
+  margin-bottom: 2rem;
+  transform: translateY(-2rem);
+}

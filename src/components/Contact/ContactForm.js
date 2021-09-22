@@ -49,19 +49,19 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="contact-form">
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <>
+    <form className="contact-us__form" onSubmit={handleSubmit(onSubmit)}>
       <input {...register("Name")} type="text" placeholder="Your name"/>
-      {errors.Name && <span>{errors.Name.message}</span>}
+      {errors.Name && <span className="form-error">{errors.Name.message}</span>}
 
       <input {...register("Email")} type="text" placeholder="You email"/>
-      {errors.Email && <span>{errors.Email.message}</span>}
+      {errors.Email && <span className="form-error">{errors.Email.message}</span>}
 
       <textarea {...register("Content")} type="text" placeholder="Your message"/>
-      {errors.Content && <span>{errors.Content.message}</span>}
+      {errors.Content && <span className="form-error">{errors.Content.message}</span>}
 
         <Button type="submit" className="btn-main" text={submitting ? "Sending..." : "Send"} />
     </form>
-    </div>
+    </>
   )
 }
