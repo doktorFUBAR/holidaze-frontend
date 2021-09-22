@@ -3,7 +3,7 @@ import Button from "../components/Common/Button";
 import Loader from "../components/Layout/Loader";
 import { useParams } from 'react-router';
 import { React, useState } from 'react'
-import { useForm, reset } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { BASE_URL, BOOKING } from '../constants/api';

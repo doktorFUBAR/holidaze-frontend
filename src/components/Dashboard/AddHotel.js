@@ -3,8 +3,10 @@ import {React, useContext, useState} from 'react';
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { BASE_URL, HOTELS, UPLOAD } from "../../constants/api";
+import { BASE_URL, HOTELS } from "../../constants/api";
 import AuthContext from "../../context/AuthContext";
+import Button from "../Common/Button";
+import { ImCheckboxChecked } from "react-icons/im";
 
 const url = BASE_URL + HOTELS;
 
@@ -15,7 +17,13 @@ const schema = yup.object().shape({
       .required("Please enter a hotel name."),
     hotelRating: yup
         .number()
-        .required("Please enter a number between 1-5.")
+        .required("Please enter a number between 1-5."),
+    hotelPrice: yup
+        .number()
+        .required("Please enter a price."),
+    hotelDescription: yup
+        .string()
+        .required("Please enter a description."),
   });
 
    
@@ -24,9 +32,15 @@ const schema = yup.object().shape({
         
         const [auth] = useContext(AuthContext);
         const [file, setFile] = useState()
+
+        const [submitting, setSubmitting] = useState(false);
+        const [submitError, setSubmitError] = useState(null);
+        const [submitMessage, setSubmitMessage] = useState(false);
+
         const {
             register,
             handleSubmit,
+            reset,
             formState: { errors },
           } = useForm({ resolver: yupResolver(schema) });
         
@@ -36,6 +50,8 @@ const schema = yup.object().shape({
         formData.append("data", JSON.stringify({Title: data.hotelName, Rating: data.hotelRating, Price: data.hotelPrice, Description: data.hotelDescription}));
         formData.append("files.Image", file);
         console.log(formData)
+        setSubmitting(true);
+        setSubmitError(null);
 
         try {
             if(auth) {
@@ -45,32 +61,40 @@ const schema = yup.object().shape({
     
         } catch (error){
             console.log(error);
+
+        } finally {
+            setSubmitting(false)
+            reset({})
+            setSubmitMessage(true);
         }
     }
 
         return (
             <div>
-                <form onSubmit={handleSubmit(submitHotel)}>
+                <form className="form" onSubmit={handleSubmit(submitHotel)}>
+                    <label className="form__label" for="hotelName">Name</label>
                     <input {...register("hotelName")} type="text" placeholder="Hotel name"/>
-                    {errors.hotelName && <span>{errors.hotelName.message}</span>}
+                    {errors.hotelName && <span className="form-error">{errors.hotelName.message}</span>}
 
+                    <label className="form__label" for="hotelRating">Rating (1-5)</label>
                     <input {...register("hotelRating")} type="text" placeholder="Hotel rating"/>
-                    {errors.hotelRating && <span>{errors.hotelRating.message}</span>}
+                    {errors.hotelRating && <span className="form-error">{errors.hotelRating.message}</span>}
 
+                    <label className="form__label" for="hotelPrice">Price</label>
                     <input {...register("hotelPrice")} type="text" placeholder="Hotel price"/>
-                    {errors.hotelPrice && <span>{errors.hotelPrice.message}</span>}
+                    {errors.hotelPrice && <span className="form-error">{errors.hotelPrice.message}</span>}
 
+                    <label className="form__label" for="hotelDescription">Description</label>
                     <input {...register("hotelDescription")} type="text" placeholder="Hotel description"/>
-                    {errors.hotelDescription && <span>{errors.hotelDescription.message}</span>}
+                    {errors.hotelDescription && <span className="form-error">{errors.hotelDescription.message}</span>}
 
-                    <input {...register}type="file" onChange={(e)=>setFile(e.target.files[0])} />
+                    <label className="form__label" for="Image">Image</label>
+                    <input {...register("Image")}type="file" onChange={(e)=>setFile(e.target.files[0])} />
 
-                    
+                    <Button type="submit" className="btn-main" text={submitting ? "Adding..." : "Add hotel"} />
 
-
-                    <button type="submit" className="btn-main">Add new hotel</button>
+                    {submitMessage ? <p className="form-success"><ImCheckboxChecked /> We have recieved your booking request!</p> : null}
                 </form>
-                {/* <FileUpload /> */}
             </div>
         )
     }
