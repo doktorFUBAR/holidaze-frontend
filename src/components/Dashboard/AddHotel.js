@@ -7,6 +7,7 @@ import { BASE_URL, HOTELS } from "../../constants/api";
 import AuthContext from "../../context/AuthContext";
 import Button from "../Common/Button";
 import { ImCheckboxChecked } from "react-icons/im";
+import Heading from "../Common/Heading";
 
 const url = BASE_URL + HOTELS;
 
@@ -71,6 +72,7 @@ const schema = yup.object().shape({
 
         return (
             <div>
+                <Heading text="Add new hotel" />
                 <form className="form" onSubmit={handleSubmit(submitHotel)}>
                     <label className="form__label" for="hotelName">Name</label>
                     <input {...register("hotelName")} type="text" placeholder="Hotel name"/>

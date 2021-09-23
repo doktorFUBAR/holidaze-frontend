@@ -24,7 +24,6 @@ export default function DashboardMenu() {
     try {
       const res = await http.get(url);
       setMessages(res.data.length)
-      console.log(messages)
     } catch(error) {
       console.log(error)
     }

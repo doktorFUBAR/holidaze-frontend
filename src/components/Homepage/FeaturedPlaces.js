@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useQuery, gql } from "@apollo/client";
 import Loader from "../Layout/Loader";
-import { BASE_URL } from "../../constants/api";
 import { GiRoundStar } from "react-icons/gi"
 
 const FEATURED = gql`
@@ -35,7 +34,6 @@ export default function FeaturedPlaces() {
         {data.category.places.map((place) => (
           <Link to={`/details/${place.id}`}>
             <div key={place.id} className="hotel-card">
-              {console.log(place.Image.url)}
               <img
                 src={place.Image[0].url}
                 alt={place.Image[0].alternativeText}

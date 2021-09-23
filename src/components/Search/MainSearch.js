@@ -15,7 +15,6 @@ export default function MainSearch() {
       try {
         const res = await fetch(BASE_URL + HOTELS);
         const json = await res.json();
-        console.log(json);
         sethotels(json);
       } catch (error) {
         setError(error.toString());
