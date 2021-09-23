@@ -56,21 +56,23 @@ export default function ContactForm() {
   return (
     <>
     <form className="form" onSubmit={handleSubmit(onSubmit)}>
-      <label className="form__label" for="Name">Full name</label>
-      <input {...register("Name")} type="text" placeholder="Your name"/>
-      {errors.Name && <span className="form-error">{errors.Name.message}</span>}
+        <fieldset disabled={submitting}>
+        <label className="form__label" for="Name">Full name</label>
+        <input {...register("Name")} type="text" placeholder="Your name"/>
+        {errors.Name && <span className="form-error">{errors.Name.message}</span>}
 
-      <label className="form__label" for="Email">Email</label>
-      <input {...register("Email")} type="text" placeholder="You email"/>
-      {errors.Email && <span className="form-error">{errors.Email.message}</span>}
+        <label className="form__label" for="Email">Email</label>
+        <input {...register("Email")} type="text" placeholder="You email"/>
+        {errors.Email && <span className="form-error">{errors.Email.message}</span>}
 
-      <label className="form__label" for="Content">Message</label>
-      <textarea {...register("Content")} type="text" placeholder="Your message"/>
-      {errors.Content && <span className="form-error">{errors.Content.message}</span>}
+        <label className="form__label" for="Content">Message</label>
+        <textarea {...register("Content")} type="text" placeholder="Your message"/>
+        {errors.Content && <span className="form-error">{errors.Content.message}</span>}
 
-      <Button type="submit" className="btn-main" text={submitting ? "Sending..." : "Send"} />
+        <Button disabled={submitting} type="submit" className="btn-main" text={submitting ? "Sending..." : "Send"} />
 
-      {submitMessage ? <p className="form-success"><ImCheckboxChecked /> We have recieved your booking request!</p> : null}
+        {submitMessage ? <p className="form-success"><ImCheckboxChecked /> We have recieved your booking request!</p> : null}
+      </fieldset>
     </form>
     </>
   )

@@ -112,37 +112,39 @@ const submitBooking = async (data) => {
       <h2>{data.place.Title}</h2>
 
       <form onSubmit={handleSubmit(submitBooking)} className="form">
-                    <label for="first_name" className="form__label">First name</label>
-                    <input {...register("first_name")} type="text" placeholder="Your first name"/>
-                    {errors.first_name && <span className="form-error">{errors.first_name.message}</span>}
+        <fieldset disabled={submitting}>
+          <label for="first_name" className="form__label">First name</label>
+          <input {...register("first_name")} type="text" placeholder="Your first name"/>
+          {errors.first_name && <span className="form-error">{errors.first_name.message}</span>}
 
-                    <label for="last_name" className="form__label">Last name</label>
-                    <input {...register("last_name")} type="text" placeholder="Your last name"/>
-                    {errors.last_name && <span className="form-error">{errors.last_name.message}</span>}
+          <label for="last_name" className="form__label">Last name</label>
+          <input {...register("last_name")} type="text" placeholder="Your last name"/>
+          {errors.last_name && <span className="form-error">{errors.last_name.message}</span>}
 
-                    <label for="email" className="form__label">Email</label>
-                    <input {...register("email")} type="text" placeholder="Your email"/>
-                    {errors.email && <span className="form-error">{errors.email.message}</span>}
+          <label for="email" className="form__label">Email</label>
+          <input {...register("email")} type="text" placeholder="Your email"/>
+          {errors.email && <span className="form-error">{errors.email.message}</span>}
 
-                    <label for="phone" className="form__label">Phone</label>
-                    <input {...register("phone")} type="text" placeholder="Your phone number"/>
-                    {errors.phone && <span className="form-error">{errors.phone.message}</span>}
+          <label for="phone" className="form__label">Phone</label>
+          <input {...register("phone")} type="text" placeholder="Your phone number"/>
+          {errors.phone && <span className="form-error">{errors.phone.message}</span>}
 
-                    <label for="date_from" className="form__label">Check-in</label>
-                    <input {...register("date_from")} type="date"/>
-                    {errors.date_from && <span className="form-error">{errors.date_from.message}</span>}
+          <label for="date_from" className="form__label">Check-in</label>
+          <input {...register("date_from")} type="date"/>
+          {errors.date_from && <span className="form-error">{errors.date_from.message}</span>}
 
-                    <label for="date_to" className="form__label">Check-out</label>
-                    <input {...register("date_to")} type="date"/>
-                    {errors.date_to && <span className="form-error">{errors.date_to.message}</span>}
+          <label for="date_to" className="form__label">Check-out</label>
+          <input {...register("date_to")} type="date"/>
+          {errors.date_to && <span className="form-error">{errors.date_to.message}</span>}
 
-                    <label for="message" className="form__label">Message</label>
-                    <textarea {...register("message")} placeholder="Your message"/>
-                    {errors.message && <span className="form-error">{errors.message.message}</span>}
+          <label for="message" className="form__label">Message</label>
+          <textarea {...register("message")} placeholder="Your message"/>
+          {errors.message && <span className="form-error">{errors.message.message}</span>}
 
-                    <Button type="submit" className="btn-main" text={submitting ? "Sending..." : "Book now"} />
-                    {submitMessage ? <p className="form-success"><ImCheckboxChecked /> Thank you for contacting us!</p> : null}
-                </form>
+          <Button disabled={submitting} type="submit" className="btn-main" text={submitting ? "Sending..." : "Book now"} />
+          {submitMessage ? <p className="form-success"><ImCheckboxChecked /> Thank you for contacting us!</p> : null}
+        </fieldset>
+      </form>
 
     </div>
   )

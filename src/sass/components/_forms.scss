@@ -12,6 +12,12 @@
     }
   }
 
+  fieldset {
+    border: none;
+    display: flex;
+    flex-direction: column;
+  }
+
   &__label {
     font-weight: 600;
     margin-bottom: 0.5rem;
