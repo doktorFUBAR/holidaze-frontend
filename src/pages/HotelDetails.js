@@ -7,6 +7,7 @@ import { GiRoundStar } from "react-icons/gi"
 import { TiArrowBackOutline } from "react-icons/ti"
 import { AiOutlineWifi, AiFillClockCircle } from "react-icons/ai"
 import { MdFreeBreakfast } from "react-icons/md"
+import Heading from "../components/Common/Heading"
 
 const HOTEL = gql`
   query getHotel($id: ID!) {
@@ -45,7 +46,7 @@ export default function HotelDetails() {
         className="hotel-details__image"
       />
       <div className="hotel-card__content">
-        <h2>{data.place.Title}</h2>
+        <Heading text={data.place.Title} />
         <p className="hotel-details__description">{data.place.Description}</p>
         <article className="hotel-details__amenities">
         <div className="hotel-details__col">

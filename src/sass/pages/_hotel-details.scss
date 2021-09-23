@@ -26,6 +26,7 @@
   &__col {
     border-radius: 1.5rem;
     display: flex;
+    font-weight: 600;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -43,6 +44,7 @@
 
   .rating {
     margin-bottom: 2rem;
+    max-width: 10rem;
   }
 
   .btn-main {
