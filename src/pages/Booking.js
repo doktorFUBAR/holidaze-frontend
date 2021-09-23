@@ -9,6 +9,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { BASE_URL, BOOKING } from '../constants/api';
 import axios from "axios";
 import { ImCheckboxChecked } from "react-icons/im";
+import Heading from "../components/Common/Heading";
 
 const url = BASE_URL + BOOKING;
 
@@ -104,12 +105,15 @@ const submitBooking = async (data) => {
 
   return (
     <div className="booking">
-      <img
-        src={data.place.Image[0].url}
-        alt={data.place.Image[0].alternativeText}
-        className="hotel-details__image"
-      />
-      <h2>{data.place.Title}</h2>
+      <header className="booking__header">
+        <img className="booking__image"
+          src={data.place.Image[0].url}
+          alt={data.place.Image[0].alternativeText}
+          className="hotel-details__image"
+        />
+
+        <Heading text={`Book ${data.place.Title} now!`}/>
+      </header>
 
       <form onSubmit={handleSubmit(submitBooking)} className="form">
         <fieldset disabled={submitting}>
