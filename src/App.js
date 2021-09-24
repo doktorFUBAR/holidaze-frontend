@@ -13,7 +13,6 @@ import HomePage from "./pages/HomePage";
 import HotelDetails from "./pages/HotelDetails";
 import Hotels from "./pages/Hotels";
 import Contact from "./pages/Contact";
-import Dashboard from "./pages/Dashboard";
 import Booking from "./pages/Booking";
 import NoMatch from "./pages/NoMatch";
 
@@ -22,6 +21,7 @@ import Header from "./components/Layout/Header";
 import Footer from "./components/Layout/Footer";
 import LoginModal from "./components/Login/LoginModal";
 import { BASE_URL, GQL } from "./constants/api";
+import DashboardHome from "./components/Dashboard/DashboardHome";
 
 //Apollo Client
 const client = new ApolloClient({
@@ -61,8 +61,8 @@ function App() {
               <Route path="/contact">
                 <Contact />
               </Route>
-              <Route exact path="/dashboard">
-                <Dashboard />
+              <Route path="/dashboard">
+                <DashboardHome />
               </Route>
               <Route>
                 <NoMatch />
