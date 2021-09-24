@@ -3,6 +3,7 @@ import { BASE_URL, BOOKING } from "../../constants/api";
 import useAxios from '../../hooks/useAxios';
 import moment from 'moment';
 import { motion } from 'framer-motion';
+import Heading from "../Common/Heading";
 
 const url = BASE_URL + BOOKING;
 
@@ -24,6 +25,7 @@ export default function Enquiries() {
     return (
       <>
       <div className="messages">
+      <Heading text="Booking enquires" />
         {bookings.map((booking) => (
             <motion.div
             key={booking.id}

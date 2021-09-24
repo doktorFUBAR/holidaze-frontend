@@ -9,6 +9,8 @@ import { GoChevronDown, GoChevronUp } from "react-icons/go";
 
 export default function DashboardHome() {
   const [showAdd, setshowAdd] = useState(false);
+  const [showBooking, setShowBooking] = useState(false);
+  const [showMessages, setShowMessages] = useState(false);
 
   return (
     <div className="dashboard">
@@ -19,12 +21,12 @@ export default function DashboardHome() {
       {showAdd  ? <AddHotel /> : null}
       <div className="dashboard__dual">
         <div className="dashboard__col">
-          <Heading text="Booking enquires" />
-          <Enquiries />
+        <h3 className="dashboard__dropdown" onClick={() => setShowBooking(!showBooking)}>See booking enquiries {!showBooking ? <GoChevronDown /> : <GoChevronUp />}</h3>
+          {showBooking ? <Enquiries /> : null}
         </div>
         <div className="dashboard__col">
-          <Heading text="Messages" />
-          <Messages />
+        <h3 className="dashboard__dropdown" onClick={() => setShowMessages(!showMessages)}>Read messages {!showMessages ? <GoChevronDown /> : <GoChevronUp />}</h3>
+          {showMessages ? <Messages /> : null}
         </div>
       </div>
     </div>
