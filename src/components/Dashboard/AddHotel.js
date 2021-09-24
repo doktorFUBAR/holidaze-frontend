@@ -16,6 +16,9 @@ const schema = yup.object().shape({
     hotelName: yup
       .string()
       .required("Please enter a hotel name."),
+    hotelName: yup
+        .string()
+        .required("Please enter an address."),
     hotelRating: yup
         .number()
         .required("Please enter a number between 1-5."),
@@ -48,7 +51,7 @@ const schema = yup.object().shape({
     const submitHotel = async (data) => {
         const formData = new FormData();
         console.log(data)
-        formData.append("data", JSON.stringify({Title: data.hotelName, Rating: data.hotelRating, Price: data.hotelPrice, Description: data.hotelDescription}));
+        formData.append("data", JSON.stringify({Title: data.hotelName, Address: data.hotelAddress, Rating: data.hotelRating, Price: data.hotelPrice, Description: data.hotelDescription}));
         formData.append("files.Image", file);
         console.log(formData)
         setSubmitting(true);
@@ -78,6 +81,10 @@ const schema = yup.object().shape({
                         <label className="form__label" for="hotelName">Name</label>
                         <input {...register("hotelName")} type="text" placeholder="Hotel name"/>
                         {errors.hotelName && <span className="form-error">{errors.hotelName.message}</span>}
+
+                        <label className="form__label" for="hotelName">Address</label>
+                        <input {...register("hotelAddress")} type="text" placeholder="Hotel address"/>
+                        {errors.hotelAddress && <span className="form-error">{errors.hotelAddress.message}</span>}
 
                         <label className="form__label" for="hotelRating">Rating (1-5)</label>
                         <input {...register("hotelRating")} type="text" placeholder="Hotel rating"/>
