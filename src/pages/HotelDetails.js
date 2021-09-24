@@ -20,6 +20,7 @@ const HOTEL = gql`
       }
       Rating
       Price
+      Address
       id
     }
   }
@@ -48,6 +49,7 @@ export default function HotelDetails() {
       <div className="hotel-card__content">
         <Heading text={data.place.Title} />
         <p className="hotel-details__description">{data.place.Description}</p>
+        <p className="hotel-details__address">{data.place.Address}</p>
         <article className="hotel-details__amenities">
         <div className="hotel-details__col">
           <AiFillClockCircle />
