@@ -9,11 +9,7 @@ import Avatar from "../../../assets/svg/avatar.svg";
 import { BASE_URL, MESSAGES } from '../../../constants/api'
 import useAxios from '../../../hooks/useAxios'
 
-
 const url = BASE_URL + MESSAGES;
-
-
-
 
 export default function DashboardMenu() {
   const http = useAxios();

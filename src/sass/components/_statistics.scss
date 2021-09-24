@@ -1,0 +1,24 @@
+.dashboard-statistics {
+  display: flex;
+  justify-content: space-evenly;
+
+  &__col {
+    display: grid;
+    place-items: center;
+    background: $color-white;
+    box-shadow: 0px 8px 40px rgba(37, 37, 37, 0.06);
+    border-radius: 1.5rem;
+    padding: 1rem;
+    width: 20%;
+
+    h2 {
+      font-size: 6rem;
+    }
+    
+    svg {
+      margin-top: 1rem;
+      color: $color-radical-red;
+      font-size: 5rem;
+    }
+  }
+}
