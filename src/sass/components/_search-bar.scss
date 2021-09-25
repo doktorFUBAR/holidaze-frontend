@@ -26,13 +26,14 @@
 }
 
 .search-results {
+  scrollbar-width: none;
   margin-top: 2rem;
   position: absolute;
   display: flex;
   flex-direction: column;
   height: auto;
   max-height: 30rem;
-  width: 100%;
+  width: 120%;
   overflow: scroll;
   background: $color-white;
   border-radius: 0 0 1rem 1rem;

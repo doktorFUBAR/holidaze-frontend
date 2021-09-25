@@ -34,6 +34,13 @@ export default function MainSearch() {
     return <p>Error...</p>;
   }
 
+  // This is used to remove the results but also be able to click links
+  const removeField = () => {
+    setTimeout(() => {
+      setShow(false);
+    },100);
+  }
+
   return (
     <>
       <form className="search-bar" autoComplete="off">
@@ -47,7 +54,7 @@ export default function MainSearch() {
               setSearch(e.target.value);
             }}
             onClick={() => setShow(!show)}
-            onBlur={() => setShow(false)}
+            onBlur={removeField}
           />
           </div>
 
