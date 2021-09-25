@@ -5,7 +5,6 @@ import { IoLogOutOutline } from "react-icons/io5";
 import AuthContext from "../../context/AuthContext";
 import { RiCloseLine } from "react-icons/ri";
 import { CgMenuRightAlt } from "react-icons/cg";
-import { FiSearch } from "react-icons/fi";
 import Logo from "../../assets/svg/logo.svg";
 import SmallLogo from "../../assets/svg/logo-small.svg";
 import { motion } from "framer-motion";
@@ -14,7 +13,6 @@ import MainSearch from "../Search/MainSearch"
 export default function Header({ handleClick }) {
   const [auth, setAuth] = useContext(AuthContext);
   const [open, setOpen] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
 
   const history = useHistory();
 
