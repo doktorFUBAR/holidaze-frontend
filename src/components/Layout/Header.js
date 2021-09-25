@@ -24,14 +24,15 @@ export default function Header({ handleClick }) {
   return (
     <div className="header">
       <Link to="/" onClick={() => setOpen(false)}>
-        <img className="header__logo" src={SmallLogo} srcSet={`${SmallLogo} 768w, ${Logo} 1000w`} alt="Holidaze logo" />
+        <img className="header__logo" src={SmallLogo} srcSet={`${SmallLogo}, 360w ${Logo} 1100w`} alt="Holidaze logo" />
       </Link>
-
+        
         <MainSearch />
       
         <div className="header__hamburger" onClick={() => setOpen(!open)}>
           {open ? <RiCloseLine/> : <CgMenuRightAlt />}
         </div>
+
         <nav>
           <ul className={open ? "header__links--open" : "header__links"}>
             <NavLink exact to="/" onClick={() => setOpen(false)} activeClassName="active">

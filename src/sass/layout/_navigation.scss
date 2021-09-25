@@ -2,8 +2,8 @@
   background: $color-white;
   height: 10vh;
   position: fixed;
-  width: 100%;
   display: flex;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
   padding: 6rem 5%;
@@ -12,7 +12,12 @@
 
   &__logo {
     display: block;
+    width: 4rem;
     max-width: 30rem;
+  }
+
+  nav {
+    order: 3;
   }
 
   &__links {
@@ -64,11 +69,10 @@
   }
 
   &__hamburger {
-    position: absolute;
-    right: 4rem;
     font-size: 4rem;
     cursor: pointer;
     z-index: 9999;
+    order: 4;
 
     @include media-breakpoint-up(md) {
       display: none;
