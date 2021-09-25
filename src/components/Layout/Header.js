@@ -36,7 +36,9 @@ export default function Header({ handleClick }) {
         </div>
         <nav>
           <ul className={open ? "header__links--open" : "header__links"}>
-
+            <NavLink exact to="/" onClick={() => setOpen(false)} activeClassName="active">
+              <li className="header__item">Home</li>
+            </NavLink>
 
             <NavLink to="/places" onClick={() => setOpen(false)} activeClassName="active">
               <li className="header__item">Places</li>
