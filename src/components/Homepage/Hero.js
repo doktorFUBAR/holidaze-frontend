@@ -15,9 +15,9 @@ export default function Hero() {
         <h1 className="hero__title-main">Explore Bergen</h1>
         <h2 className="hero__title-sub">Find your dream stay</h2>
 
-          <div className="show-search">
+          {/* <div className="show-search">
             <MainSearch />
-          </div>
+          </div> */}
       </div>
       <div className="hero__img-container">
         <img src={HeroIMG} alt="Illustration of woman walking" />

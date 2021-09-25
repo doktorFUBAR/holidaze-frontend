@@ -5,12 +5,15 @@ import { IoLogOutOutline } from "react-icons/io5";
 import AuthContext from "../../context/AuthContext";
 import { RiCloseLine } from "react-icons/ri";
 import { CgMenuRightAlt } from "react-icons/cg";
+import { FiSearch } from "react-icons/fi";
 import Logo from "../../assets/svg/logo.svg";
 import { motion } from "framer-motion";
+import MainSearch from "../Search/MainSearch"
 
 export default function Header({ handleClick }) {
   const [auth, setAuth] = useContext(AuthContext);
   const [open, setOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
 
   const history = useHistory();
 
@@ -24,15 +27,16 @@ export default function Header({ handleClick }) {
       <Link to="/" onClick={() => setOpen(false)}>
         <img className="header__logo" src={Logo} alt="Holidaze logo" />
       </Link>
+
+        <MainSearch />
       
         <div className="header__hamburger" onClick={() => setOpen(!open)}>
-          {open? <RiCloseLine/> : <CgMenuRightAlt />}
+          {open ? <RiCloseLine/> : <CgMenuRightAlt />}
         </div>
         <nav>
           <ul className={open ? "header__links--open" : "header__links"}>
-            <NavLink exact to="/" onClick={() => setOpen(false)} activeClassName="active">
-              <li className="header__item">Home</li>
-            </NavLink>
+
+
             <NavLink to="/places" onClick={() => setOpen(false)} activeClassName="active">
               <li className="header__item">Places</li>
             </NavLink>

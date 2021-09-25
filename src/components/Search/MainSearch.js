@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { BASE_URL, HOTELS } from "../../constants/api";
+import { FiSearch } from "react-icons/fi";
 
 export default function MainSearch() {
   const [hotels, sethotels] = useState([]);
@@ -37,7 +38,7 @@ export default function MainSearch() {
     <>
       <form className="search-bar" autoComplete="off">
         <div className="input-group">
-          <div className="search-bar__icon"></div>
+          <div className="search-bar__icon"><FiSearch/></div>
           <input
             type="text"
             placeholder="Where are you going?"
@@ -47,6 +48,8 @@ export default function MainSearch() {
             }}
             onClick={() => setShow(!show)}
           />
+          </div>
+
           {show ? (
             <ul class="search-results" onClick={() => setShow(!show)}>
               {hotels
@@ -76,7 +79,7 @@ export default function MainSearch() {
                 })}
             </ul>
           ) : null}
-        </div>
+
       </form>
     </>
   );
