@@ -47,6 +47,7 @@ export default function MainSearch() {
               setSearch(e.target.value);
             }}
             onClick={() => setShow(!show)}
+            onBlur={() => setShow(false)}
           />
           </div>
 

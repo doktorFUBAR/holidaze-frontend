@@ -6,19 +6,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 6rem;
+  padding: 6rem 5%;
   top: 0;
   z-index: 999;
 
   &__logo {
     display: block;
-    width: 20rem;
-    display: none;
-
-    @include media-breakpoint-up(md) {
-      width: 24rem;
-      display: block;
-    }
   }
 
   &__links {

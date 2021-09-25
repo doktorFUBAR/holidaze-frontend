@@ -17,6 +17,7 @@
     padding: .5rem 1rem;
     transition: all 300ms ease-in-out;
     height: 5rem;
+    width: 15rem;
 
     @include media-breakpoint-up(md) {
       width: 30rem;

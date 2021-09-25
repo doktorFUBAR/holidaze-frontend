@@ -7,6 +7,7 @@ import { RiCloseLine } from "react-icons/ri";
 import { CgMenuRightAlt } from "react-icons/cg";
 import { FiSearch } from "react-icons/fi";
 import Logo from "../../assets/svg/logo.svg";
+import SmallLogo from "../../assets/svg/logo-small.svg";
 import { motion } from "framer-motion";
 import MainSearch from "../Search/MainSearch"
 
@@ -25,7 +26,7 @@ export default function Header({ handleClick }) {
   return (
     <div className="header">
       <Link to="/" onClick={() => setOpen(false)}>
-        <img className="header__logo" src={Logo} alt="Holidaze logo" />
+        <img className="header__logo" src={SmallLogo} srcSet={`${SmallLogo} 768w, ${Logo} 1000w`} alt="Holidaze logo" />
       </Link>
 
         <MainSearch />
