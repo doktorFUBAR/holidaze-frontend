@@ -38,7 +38,6 @@ export default function AddHotel() {
 
   const submitHotel = async (data) => {
     const formData = new FormData();
-    console.log(data);
     formData.append(
       "data",
       JSON.stringify({
@@ -50,7 +49,6 @@ export default function AddHotel() {
       })
     );
     formData.append("files.Image", file);
-    console.log(formData);
     setSubmitting(true);
     setSubmitError(null);
 

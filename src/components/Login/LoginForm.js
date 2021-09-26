@@ -40,8 +40,6 @@ export default function LoginForm() {
     setSubmitting(true);
     setLoginError(null);
 
-    console.log(data);
-
     try {
       if ([auth]) {
         const res = await axios.post(url, {
@@ -58,8 +56,6 @@ export default function LoginForm() {
       window.location.reload(); // The least amount of code I found to remove the modal on login
     }
   };
-
-  console.log(errors);
 
   return (
     <div>

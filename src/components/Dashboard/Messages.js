@@ -34,7 +34,6 @@ export default function Messages() {
 
   // This should ideally be sorted by date, but it works
   const newFirst = [...messages].reverse();
-  console.log(newFirst);
 
   return (
     <>

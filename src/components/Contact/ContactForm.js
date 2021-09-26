@@ -32,7 +32,6 @@ export default function ContactForm() {
 
   const onSubmit = async (data) => {
     const formData = new FormData();
-    console.log(data);
     formData.append(
       "data",
       JSON.stringify({
@@ -41,11 +40,8 @@ export default function ContactForm() {
         Content: data.Content,
       })
     );
-    console.log(formData);
     setSubmitting(true);
     setSubmitError(null);
-
-    console.log(data);
 
     try {
       await axios.post(url, data);

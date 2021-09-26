@@ -65,7 +65,6 @@ export default function Booking() {
   if (error) return <p>Error...</p>;
 
   const hotelName = data.place.Title;
-  console.log(typeof hotelName);
 
   const submitBooking = async (data) => {
     const formData = new FormData();
