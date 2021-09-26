@@ -42,9 +42,11 @@ export default function ContactForm() {
 
     try {
       await axios.post(url, data)
+
       } catch (error){
-      console.log(error);
+      setSubmitError(error.toString());
       }
+
       finally {
         setSubmitting(false)
         reset({})
@@ -56,7 +58,7 @@ export default function ContactForm() {
   return (
     <>
     <form className="form" onSubmit={handleSubmit(onSubmit)}>
-        <fieldset disabled={submitting}>
+      <fieldset disabled={submitting}>
         <label className="form__label" for="Name">Full name</label>
         <input {...register("Name")} type="text" placeholder="Your name"/>
         {errors.Name && <span className="form-error">{errors.Name.message}</span>}
@@ -73,6 +75,8 @@ export default function ContactForm() {
 
         {submitMessage ? <p className="form-success"><ImCheckboxChecked /> We have recieved your booking request!</p> : null}
       </fieldset>
+
+    {submitError && <span className="form-error">{submitError}</span>}
     </form>
     </>
   )
