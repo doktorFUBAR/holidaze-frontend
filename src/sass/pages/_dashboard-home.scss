@@ -2,9 +2,14 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 15rem;
   padding: 0 5%;
   text-align: center;
+  max-width: 80%;
+  margin: 15rem auto 0 auto;
+
+  h1 {
+    margin-bottom: 2rem;
+  }
 
 
   &__dropdown {

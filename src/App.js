@@ -45,6 +45,7 @@ function App() {
             {showModal ? (
               <LoginModal shown={showModal} close={() => setShowModal(false)} />
             ) : null}
+            <main>
             <Switch>
               <Route exact path="/">
                 <HomePage />
@@ -68,6 +69,7 @@ function App() {
                 <NoMatch />
               </Route>
             </Switch>
+            </main>
             <Footer />
           </div>
         </ApolloProvider>

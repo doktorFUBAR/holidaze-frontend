@@ -5,7 +5,8 @@ footer {
   color: $color-white;
   border-radius: 1.5rem 1.5rem 0 0;
   padding: 2rem;
-  position: sticky;
+  width: 100%;
+  flex: 0;
 
   ul {
     list-style: none;
