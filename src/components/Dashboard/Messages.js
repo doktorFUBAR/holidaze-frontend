@@ -4,6 +4,7 @@ import useAxios from '../../hooks/useAxios';
 import moment from 'moment';
 import { motion } from 'framer-motion';
 import { GoChevronDown, GoChevronUp } from "react-icons/go"
+import SubHeading from "../Common/SubHeading";
 
 const url = BASE_URL + MESSAGES;
 
@@ -36,7 +37,7 @@ export default function Messages() {
 
     return (
       <>
-      <h1>Messages</h1>
+      <SubHeading text="Messages" />
       <div className="messages">
         {newFirst.map((message, index) => (
             <motion.div

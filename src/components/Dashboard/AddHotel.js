@@ -7,7 +7,7 @@ import { BASE_URL, HOTELS } from "../../constants/api";
 import AuthContext from "../../context/AuthContext";
 import Button from "../Common/Button";
 import { ImCheckboxChecked } from "react-icons/im";
-import Heading from "../Common/Heading";
+import SubHeading from "../Common/SubHeading";
 
 const url = BASE_URL + HOTELS;
 
@@ -75,7 +75,7 @@ const schema = yup.object().shape({
 
         return (
             <div>
-                <Heading text="Add new hotel" />
+                <SubHeading text="Add new hotel" />
                 <form className="form" onSubmit={handleSubmit(submitHotel)}>
                     <fieldset disabled={submitting}>
                         <label className="form__label" for="hotelName">Name</label>

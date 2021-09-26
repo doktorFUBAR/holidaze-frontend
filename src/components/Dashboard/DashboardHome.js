@@ -17,7 +17,7 @@ export default function DashboardHome() {
       <Heading text="Welcome to the Holidaze Dashboard!" />
       <Statistics />
       <HotelCollection />
-      <h3 className="dashboard__dropdown" onClick={() => setshowAdd(!showAdd)}>Add new hotel {!showAdd ? <GoChevronDown /> : <GoChevronUp />}</h3>
+      <h3 className="dashboard__dropdown dropdown-first" onClick={() => setshowAdd(!showAdd)}>Add new hotel {!showAdd ? <GoChevronDown /> : <GoChevronUp />}</h3>
       {showAdd  ? <AddHotel /> : null}
       <div className="dashboard__dual">
         <div className="dashboard__col">

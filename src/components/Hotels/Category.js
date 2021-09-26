@@ -1,7 +1,6 @@
 import {React, useState} from 'react';
 import { useQuery, gql } from '@apollo/client';
 import { Link } from 'react-router-dom';
-import { BASE_URL } from '../../constants/api';
 import { GiRoundStar } from 'react-icons/gi';
 import HotelCollection from './HotelCollection';
 import {RiArrowDropDownFill} from "react-icons/ri"
