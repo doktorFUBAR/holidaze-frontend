@@ -10,6 +10,7 @@ import { BASE_URL, BOOKING } from '../constants/api';
 import axios from "axios";
 import { ImCheckboxChecked } from "react-icons/im";
 import Heading from "../components/Common/Heading";
+import { motion } from "framer-motion";
 
 const url = BASE_URL + BOOKING;
 
@@ -104,7 +105,12 @@ const submitBooking = async (data) => {
 }
 
   return (
-    <div className="booking">
+    <motion.div
+    className="booking"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    >
       <header className="booking__header">
         <img className="booking__image"
           src={data.place.Image[0].url}
@@ -150,6 +156,6 @@ const submitBooking = async (data) => {
         </fieldset>
       </form>
 
-    </div>
+    </motion.div>
   )
 }

@@ -21,13 +21,19 @@ import Header from "./components/Layout/Header";
 import Footer from "./components/Layout/Footer";
 import LoginModal from "./components/Login/LoginModal";
 import { BASE_URL, GQL } from "./constants/api";
-import DashboardHome from "./components/Dashboard/DashboardHome";
+import DashboardHome from "./pages/DashboardHome";
+
+// Framer motion import
+import { AnimatePresence } from "framer-motion";
 
 //Apollo Client
 const client = new ApolloClient({
   uri: BASE_URL + GQL,
   cache: new InMemoryCache(),
 });
+
+
+
 
 function App() {
   const [showModal, setShowModal] = useState(false);
@@ -46,6 +52,7 @@ function App() {
               <LoginModal shown={showModal} close={() => setShowModal(false)} />
             ) : null}
             <main>
+            <AnimatePresence>
             <Switch>
               <Route exact path="/">
                 <HomePage />
@@ -69,6 +76,7 @@ function App() {
                 <NoMatch />
               </Route>
             </Switch>
+            </AnimatePresence>
             </main>
             <Footer />
           </div>

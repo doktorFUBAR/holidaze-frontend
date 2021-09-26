@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import Heading from '../Common/Heading'
-import HotelCollection from "../Hotels/HotelCollection";
-import Statistics from './Statistics';
-import Enquiries from "./Enquiries";
-import Messages from "./Messages";
-import AddHotel from "./AddHotel";
+import Heading from '../components/Common/Heading'
+import HotelCollection from "../components/Hotels/HotelCollection";
+import Statistics from '../components/Dashboard/Statistics';
+import Enquiries from "../components/Dashboard/Enquiries";
+import Messages from "../components/Dashboard/Messages";
+import AddHotel from "../components/Dashboard/AddHotel";
 import { GoChevronDown, GoChevronUp } from "react-icons/go";
+import { motion } from 'framer-motion';
 
 export default function DashboardHome() {
   const [showAdd, setshowAdd] = useState(false);
@@ -13,7 +14,12 @@ export default function DashboardHome() {
   const [showMessages, setShowMessages] = useState(false);
 
   return (
-    <div className="dashboard">
+    <motion.div 
+    className="dashboard"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    >
       <Heading text="Welcome to the Holidaze Dashboard!" />
       <Statistics />
       <HotelCollection />
@@ -29,6 +35,6 @@ export default function DashboardHome() {
           {showMessages ? <Messages /> : null}
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }

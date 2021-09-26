@@ -8,6 +8,7 @@ import { TiArrowBackOutline } from "react-icons/ti"
 import { AiOutlineWifi, AiFillClockCircle } from "react-icons/ai"
 import { MdFreeBreakfast } from "react-icons/md"
 import Heading from "../components/Common/Heading"
+import { motion } from "framer-motion";
 
 const HOTEL = gql`
   query getHotel($id: ID!) {
@@ -37,7 +38,12 @@ export default function HotelDetails() {
 
   return (
     <>
-    <div className="hotel-details">
+    <motion.div
+    className="hotel-details"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    >
     <Link to="/places">
           <Button text={<TiArrowBackOutline />} />
       </Link>
@@ -68,7 +74,7 @@ export default function HotelDetails() {
           <Button text="Book now"/>
         </Link>
       </div>
-    </div>
+    </motion.div>
 
     </>
   );
