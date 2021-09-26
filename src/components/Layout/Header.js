@@ -10,24 +10,6 @@ import SmallLogo from "../../assets/svg/logo-small.svg";
 import { motion } from "framer-motion";
 import MainSearch from "../Search/MainSearch"
 
-const variants = {
-  open: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      y: { stiffness: 1000, velocity: -100 }
-    }
-  },
-  closed: {
-    y: 50,
-    opacity: 0,
-    transition: {
-      y: { stiffness: 1000 }
-    }
-  }
-};
-
-
 export default function Header({ handleClick }) {
   const [auth, setAuth] = useContext(AuthContext);
   const [open, setOpen] = useState(false);
@@ -54,7 +36,6 @@ export default function Header({ handleClick }) {
         <nav>
           <ul className={open ? "header__links--open" : "header__links"}>
               <motion.li
-                variants={ variants }
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 className="header__item">
@@ -65,7 +46,6 @@ export default function Header({ handleClick }) {
             
 
               <motion.li
-                variants={ variants }
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 className="header__item">
@@ -75,7 +55,6 @@ export default function Header({ handleClick }) {
               </motion.li>
             
               <motion.li
-                variants={ variants }
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 className="header__item">
@@ -87,7 +66,7 @@ export default function Header({ handleClick }) {
           {auth ? (
             <>
                 <motion.li
-                  variants={ variants }
+
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 className="header__item">
