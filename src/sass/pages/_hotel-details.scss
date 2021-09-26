@@ -31,12 +31,10 @@
   }
 
   &__col {
+    @include flex-center;
+  
     border-radius: 1.5rem;
-    display: flex;
     font-weight: 600;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     text-align: center;
     font-size: 1.4rem;
     width: 30%;

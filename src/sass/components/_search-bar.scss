@@ -38,11 +38,16 @@
   overflow: scroll;
   background: $color-white;
   border-radius: 0 0 1rem 1rem;
+
   a {
     color: $color-black;
 
     &:visited {
       color: $color-black;
+    }
+
+    &:hover {
+      background: darken($color-white, 2%);
     }
   }
 
