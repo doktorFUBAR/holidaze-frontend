@@ -26,6 +26,7 @@
     list-style: none;
     align-items: center;
     z-index: 999;
+    height: 100%;
 
     &--open {
       @include flex-center;
@@ -57,11 +58,6 @@
 
     a:visited {
       color: $color-black;
-    }
-
-    &:hover {
-      background: darken($color-white, 5%);
-      border-radius: 0.5rem;
     }
   }
 

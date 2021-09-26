@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useQuery, gql } from "@apollo/client";
 import Loader from "../Layout/Loader";
 import { GiRoundStar } from "react-icons/gi"
+import { motion } from "framer-motion";
 
 const FEATURED = gql`
   query GetFeatured {
@@ -33,7 +34,13 @@ export default function FeaturedPlaces() {
       <div className="hotel-grid">
         {data.category.places.map((place) => (
           <Link to={`/details/${place.id}`}>
-            <div key={place.id} className="hotel-card">
+            <motion.div
+            key={place.id}
+            className="hotel-card"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ type: "spring", stiffness: 300 }}
+            >
             <div className="hotel-card__image-wrapper">
               <img
                 src={place.Image[0].url}
@@ -51,7 +58,7 @@ export default function FeaturedPlaces() {
                   <div className="featured-badge">Popular</div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </Link>
         ))}
       </div>

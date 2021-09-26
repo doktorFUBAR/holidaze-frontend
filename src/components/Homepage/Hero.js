@@ -1,23 +1,21 @@
-import { React, useState } from "react";
+import { React } from "react";
 import HeroIMG from "../../assets/3.jpg";
-import MainSearch from "../Search/MainSearch";
+import { HiOutlineChevronDown } from "react-icons/hi"
+import Heading from "../Common/Heading";
+import SubHeading from "../Common/SubHeading";
+import { motion } from "framer-motion";
 
 export default function Hero() {
-  const [showSearch, setShowSearch] = useState(false);
-
-  const displaySearch = () => {
-    setShowSearch(!showSearch);
-  };
 
   return (
     <div className="hero">
       <div className="hero__content">
-        <h1 className="hero__title-main">Explore Bergen</h1>
-        <h2 className="hero__title-sub">Find your dream stay</h2>
-
-          {/* <div className="show-search">
-            <MainSearch />
-          </div> */}
+        <Heading className="hero__title-main" text="Explore Bergen" />
+        <SubHeading className="hero__title-sub" text="Find your dream stay" />
+        <motion.div
+          animate={{ y: "20px" }}
+          transition={{ type: "spring", stiffness: 300, duration: 2, repeat: Infinity }}
+          className="hero__icon"><HiOutlineChevronDown /></motion.div>
       </div>
       <div className="hero__img-container">
         <img src={HeroIMG} alt="Illustration of woman walking" />

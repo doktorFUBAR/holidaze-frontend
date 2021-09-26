@@ -3,6 +3,8 @@ import { BASE_URL, HOTELS } from "../../constants/api";
 import useFetch from "../../hooks/useFetch";
 import { GiRoundStar } from "react-icons/gi"
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+
 
 export default function HotelCollection() {
   const { loading, error, data } = useFetch(BASE_URL + HOTELS);
@@ -15,7 +17,14 @@ export default function HotelCollection() {
       <div className="hotel-grid">
         {data.map((place) => (
           <Link to={`/details/${place.id}`}>
-          <div key={place.id} className="hotel-card">
+          <motion.div
+            key={place.id}
+            className="hotel-card"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ type: "spring", stiffness: 300 }}
+            >
+
             <div className="hotel-card__image-wrapper">
               <img
                 src={place.Image[0].url}
@@ -31,7 +40,7 @@ export default function HotelCollection() {
               </div>
              
             </div>
-          </div>
+          </motion.div>
           </Link>
         ))}
       </div>
