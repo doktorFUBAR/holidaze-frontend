@@ -1,8 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import AuthContext from "../context/AuthContext";
 
-
-
 const useFetch = (url) => {
   const [auth] = useContext(AuthContext);
   const [data, setData] = useState(null);
@@ -14,14 +12,13 @@ const useFetch = (url) => {
       setLoading(true);
 
       try {
-        if(auth) {
+        if (auth) {
           const res = await fetch(url);
           const json = await res.json();
-  
+
           setData(json);
           setLoading(false);
         }
-
       } catch (error) {
         setError(error);
         setLoading(false);
@@ -29,7 +26,7 @@ const useFetch = (url) => {
     };
 
     fetchData();
-  }, [url]);
+  }, [url, auth]);
 
   return { loading, error, data };
 };

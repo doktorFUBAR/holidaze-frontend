@@ -43,19 +43,19 @@ export default function LoginForm() {
     console.log(data);
 
     try {
-      const res = await axios.post(url, {
-        identifier: data.email,
-        password: data.password,
-      });
-      console.log("response", res.data);
-      setAuth(res.data);
-      history.push("/dashboard");
+      if ([auth]) {
+        const res = await axios.post(url, {
+          identifier: data.email,
+          password: data.password,
+        });
+        setAuth(res.data);
+        history.push("/dashboard");
+      }
     } catch (error) {
-      console.log("error", error);
       setLoginError(error.toString());
     } finally {
       setSubmitting(false);
-      window.location.reload(); // The least amount of code to remove the modal on login
+      window.location.reload(); // The least amount of code I found to remove the modal on login
     }
   };
 
@@ -81,7 +81,11 @@ export default function LoginForm() {
             placeholder="Type your password"
           />
           {errors.password && <span>{errors.password.message}</span>}
-          <Button type="submit" className="btn-main" text={submitting ? "Logging in..." : "Login"}/>
+          <Button
+            type="submit"
+            className="btn-main"
+            text={submitting ? "Logging in..." : "Login"}
+          />
         </fieldset>
       </form>
     </div>
