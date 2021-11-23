@@ -59,9 +59,7 @@ export default function Category() {
         </span>
       </div>
 
-      {filterParam === 1 ? (
-        <HotelCollection />
-      ) : (
+      {filterParam !== 1 || undefined ? (
         <div className="hotel-grid">
           {data.category.places.map((place) => (
             <Link to={`/details/${place.id}`}>
@@ -89,6 +87,8 @@ export default function Category() {
             </Link>
           ))}
         </div>
+      ) : (
+        <HotelCollection />
       )}
     </div>
   );
