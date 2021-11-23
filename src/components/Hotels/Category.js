@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { GiRoundStar } from "react-icons/gi";
 import HotelCollection from "./HotelCollection";
 import { RiArrowDropDownFill } from "react-icons/ri";
+import Select from "react-select";
 
 const CATEGORY = gql`
   query GetCategory($id: ID!) {
@@ -23,7 +24,7 @@ const CATEGORY = gql`
 `;
 
 export default function Category() {
-  const [filterParam, setFilterParam] = useState("1");
+  const [filterParam, setFilterParam] = useState(1);
   const id = filterParam;
   const { loading, error, data } = useQuery(CATEGORY, {
     variables: { id: id },
@@ -32,35 +33,33 @@ export default function Category() {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error...</p>;
 
+  const options = [
+    { value: 1, label: "All" },
+    { value: 2, label: "Hotels" },
+    { value: 3, label: "Bed & Breakfast" },
+    { value: 4, label: "Guesthouses" },
+  ];
+
+  const changeFilter = (options) => {
+    setFilterParam(options.value);
+  };
+
   return (
     <div className="places-page">
       <h1>Places</h1>
       <div className="place-filter">
-        <select
-          onChange={(e) => {
-            setFilterParam(e.target.value);
-          }}
+        <Select
+          defaultValue={{ value: 1, label: "All" }}
+          options={options}
+          onChange={changeFilter}
           name="filter"
-        >
-          <option className="place-filter__option" value="1">
-            All
-          </option>
-          <option className="place-filter__option" value="2">
-            Hotels
-          </option>
-          <option className="place-filter__option" value="3">
-            Bed &amp; Breakfast
-          </option>
-          <option className="place-filter__option" value="4">
-            Guesthouses
-          </option>
-        </select>
+        />
         <span className="place-filter__arrow">
           <RiArrowDropDownFill />
         </span>
       </div>
 
-      {filterParam === "1" ? (
+      {filterParam === 1 ? (
         <HotelCollection />
       ) : (
         <div className="hotel-grid">
@@ -84,7 +83,6 @@ export default function Category() {
                       </span>
                       {place.Rating}
                     </div>
-                    <div className="featured-badge">Popular</div>
                   </div>
                 </div>
               </div>
