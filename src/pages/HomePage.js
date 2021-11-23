@@ -8,19 +8,21 @@ import Hero from "../components/Homepage/Hero";
 export default function HomePage() {
   return (
     <motion.div
-    className="home-wrapper"
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    exit={{ opacity: 0 }}
+      className="home-wrapper"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
     >
       <Hero />
+      <FeaturedPlaces />
       <div className="category-container">
         <h2 className="heading-medium">Sleep the way you want</h2>
-        <p className="paragraph u-centered">Choose between hotels, bed &amp; breakfast and guesthouses.</p>
+        <p className="paragraph u-centered">
+          Choose between hotels, bed &amp; breakfast and guesthouses.
+        </p>
         <Categories />
       </div>
       <ExploreCta />
-      <FeaturedPlaces />
     </motion.div>
   );
 }
